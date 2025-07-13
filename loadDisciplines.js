@@ -8,4 +8,4 @@ function loadDisciplines() {
   return Function(code)();
 }
 
-module.exports = loadDisciplines();
+module.exports = loadDisciplines;
