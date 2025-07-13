@@ -474,7 +474,7 @@
                     { level: 4, name: "Sudario Estigio", effect: "La oscuridad brota de una sombra cercana y cubre el área.", cost: "Una Prueba de Enardecimiento", prerequisite: "Ninguno", amalgam: "No", duration: "Una escena", dice: "N/A", opposing: "N/A", notes: "La sombra puede extenderse hasta el doble de la puntuación de Olvido del usuario en yardas/metros.", source: "Chicago by Night, pág. 295" },
                     { level: 4, name: "Agarre Umbrío", effect: "Usando la sombra de la víctima, crean un portal, dejándola caer en los brazos del usuario.", cost: "Una Prueba de Enardecimiento, Una Mancha", prerequisite: "Ninguno", amalgam: "No", duration: "Instantáneo", dice: "Astucia + Olvido", opposing: "Destreza + Astucia", notes: "Un mortal no preparado quedará aterrorizado, mientras que un vampiro debe probar para frenesí de furia o miedo.", source: "Sabbat, pág. 49" },
                     { level: 5, name: "Paso Sombrío", effect: "El usuario puede entrar en una sombra y aparecer en otra a la vista.", cost: "Una Prueba de Enardecimiento", prerequisite: "Ninguno", amalgam: "No", duration: "Un turno", dice: "N/A", opposing: "N/A", notes: "Una persona dispuesta puede ser llevada a través del Paso Sombrío, pero si el usuario se mancha, también lo hace el pasajero.", source: "Chicago by Night, pág. 295" },
-                    { level: 5, name: "Skuld Cumplida (Errata)", effect: "Reintroduce enfermedades de las que alguien se ha recuperado.", cost: "Dos Pruebas de Enardecimiento", prerequisite: "Ninguno", amalgam: "No", duration: "Variable", dice: "Resistencia + Olvido", opposing: "Resistencia + Resistencia/Fortaleza", notes: "Si la víctima es un ghoul, su inmunidad al envejecimiento se elimina.", source: "Cults of the Blood Gods, pág. 207" },
+                    { level: 5, name: "Skuld Cumplida (Errata)", effect: "Reintroduce enfermedades de las que alguien se ha recuperado.", cost: "Dos Pruebas de Enardecimiento", prerequisite: "Ninguno", amalgam: "No", duration: "Variable", dice: "Resistencia + Olvido", opposing: "Resistencia + Ocultismo/Fortaleza", notes: "Si la víctima es un ghoul, su inmunidad al envejecimiento se elimina.", source: "Cults of the Blood Gods, pág. 207" },
                     { level: 5, name: "Avatar Tenebroso", effect: "Cambia su cuerpo en una sombra capaz de moverse sobre cualquier superficie o a través de pequeños espacios.", cost: "Dos Pruebas de Enardecimiento", prerequisite: "Ninguno", amalgam: "No", duration: "Una escena o hasta que se termine", dice: "N/A", opposing: "N/A", notes: "El usuario no recibe daño excepto por la luz solar y el fuego mientras está en esta forma.", source: "Chicago by Night, pág. 295" },
                     { level: 5, name: "Espíritu Marchitante", effect: "Erosiona el espíritu de una víctima hasta que es una cáscara.", cost: "Dos Pruebas de Enardecimiento, Manchas", prerequisite: "Ninguno", amalgam: "No", duration: "Un turno", dice: "Resolución + Olvido", opposing: "Resolución + Ocultismo/Fortaleza", notes: "Si el objetivo queda Deteriorado, no volverá como un espectro.", source: "Cults of the Blood Gods, pág. 208" }
                 ],
@@ -589,19 +589,23 @@
             });
         }
 
+        function normalizeText(str) {
+            return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        }
+
         function filterAndRenderNav() {
-            const searchTerm = searchBar.value.toLowerCase();
-            const selectedClan = clanFilter.value;
+            const searchTerm = normalizeText(searchBar.value);
+            const selectedClan = normalizeText(clanFilter.value);
             const listItems = navContainer.querySelectorAll('li');
 
             listItems.forEach(item => {
                 const disciplineKey = item.querySelector('button').dataset.discipline;
                 const discipline = disciplines[disciplineKey];
                 
-                const clanMatch = selectedClan === 'all' || discipline.affinity.includes(selectedClan);
-                
-                const searchMatch = discipline.title.toLowerCase().includes(searchTerm) || 
-                                    discipline.powers.some(power => power.name.toLowerCase().includes(searchTerm));
+                const clanMatch = selectedClan === 'all' || discipline.affinity.some(clan => normalizeText(clan) === selectedClan);
+
+                const searchMatch = normalizeText(discipline.title).includes(searchTerm) ||
+                                    discipline.powers.some(power => normalizeText(power.name).includes(searchTerm));
 
                 if (clanMatch && searchMatch) {
                     item.style.display = 'block';
