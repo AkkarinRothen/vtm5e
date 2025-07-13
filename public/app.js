@@ -8,8 +8,10 @@ const backToTopButton = document.getElementById('back-to-top');
 
 const disciplinesView = document.getElementById('disciplines-view');
 const charCreationView = document.getElementById('character-creation-view');
+const clanLoreView = document.getElementById('clan-lore-view');
 const navDisciplines = document.getElementById('nav-disciplines');
 const navCharCreation = document.getElementById('nav-char-creation');
+const navClanLore = document.getElementById('nav-clan-lore');
 
 let currentDiscipline = null;
 
@@ -17,13 +19,24 @@ function switchView(viewName) {
     if (viewName === 'disciplines') {
         disciplinesView.classList.add('active');
         charCreationView.classList.remove('active');
+        clanLoreView.classList.remove('active');
         navDisciplines.classList.add('active');
         navCharCreation.classList.remove('active');
+        navClanLore.classList.remove('active');
     } else if (viewName === 'char-creation') {
         disciplinesView.classList.remove('active');
         charCreationView.classList.add('active');
+        clanLoreView.classList.remove('active');
         navDisciplines.classList.remove('active');
         navCharCreation.classList.add('active');
+        navClanLore.classList.remove('active');
+    } else if (viewName === 'clan-lore') {
+        disciplinesView.classList.remove('active');
+        charCreationView.classList.remove('active');
+        clanLoreView.classList.add('active');
+        navDisciplines.classList.remove('active');
+        navCharCreation.classList.remove('active');
+        navClanLore.classList.add('active');
     }
 }
 
@@ -172,6 +185,7 @@ function initialize() {
 
     navDisciplines.addEventListener('click', () => switchView('disciplines'));
     navCharCreation.addEventListener('click', () => switchView('char-creation'));
+    navClanLore.addEventListener('click', () => switchView('clan-lore'));
 
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > 300) {
