@@ -12,15 +12,27 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0c0a09; /* stone-950 */
-            background-image: url('https://static1.srcdn.com/wordpress/wp-content/uploads/2019/03/Vampire-The-Masquerade-Sequel.jpg" width="40" height="40" viewBox="0 0 40 40"%3E%3Cg fill-rule="evenodd"%3E%3Cg fill="%23991b1b" fill-opacity="0.1"%3E%3Cpath d="M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+            /* Corrected SVG background pattern */
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"%3E%3Cg fill-rule="evenodd"%3E%3Cg fill="%23991b1b" fill-opacity="0.1"%3E%3Cpath d="M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
         }
         h1, h2, h3, h4 {
             font-family: 'Cinzel Decorative', serif;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
+        header {
+            background: linear-gradient(to bottom, rgba(153, 27, 27, 0.5), transparent);
+            padding: 1.5rem 1rem;
+            border-radius: 0.5rem;
+        }
+        .nav-link {
+            transition: background-color 0.3s, color 0.3s;
+        }
         .nav-link.active {
             background-color: #991B1B;
             color: #F3F4F6;
+        }
+        .discipline-btn {
+            transition: background-color 0.3s, border-color 0.3s;
         }
         .discipline-btn.active {
             background-color: #991B1B; /* bg-red-800 */
@@ -29,6 +41,19 @@
         }
         #back-to-top {
             transition: opacity 0.3s, visibility 0.3s;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #1c1917;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #374151;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #991B1B;
         }
         .content-section {
             display: none;
@@ -45,11 +70,14 @@
             <h1 class="text-4xl md:text-6xl font-bold text-red-600">Guía del Vástago</h1>
             <p class="text-gray-400 mt-2 text-lg">Vampiro: La Mascarada 5ª Edición</p>
         </header>
-        <div class="flex justify-center gap-4 mb-4">
-            <img src="https://static1.srcdn.com/wordpress/wp-content/uploads/2019/03/Vampire-The-Masquerade-Sequel.jpg" alt="Ankh de Vampiro" class="w-1400 h-700 rounded shadow-md">
-           
-        </div>
-        <p class="text-center text-gray-400 text-sm italic mb-4">Las portadas mostradas arriba son ejemplos para ilustración y pertenecen a sus respectivos propietarios.</p>
+        <figure class="mb-4">
+            <img src="https://live.staticflickr.com/86/268735842_d5dffbe4df_b.jpg" alt="Arte de Vampire: The Masquerade" class="w-full h-auto rounded shadow-md" loading="lazy">
+            <figcaption class="text-center text-gray-500 text-xs mt-1">Imagen
+                <a href="https://www.flickr.com/photos/33854765@N00/268735842" class="underline hover:text-red-400" target="_blank" rel="noopener noreferrer">"Vampire, the Masquerade"</a>
+                por <a href="https://www.flickr.com/photos/33854765@N00" class="underline hover:text-red-400" target="_blank" rel="noopener noreferrer">LordFerguson</a> (CC BY-SA 2.0)</figcaption>
+        </figure>
+        <!-- Las dos imágenes de Wikipedia han sido eliminadas de aquí -->
+        <p class="text-center text-gray-400 text-sm italic mb-4">El banner se muestra bajo licencia CC BY-SA 2.0. Las demás imágenes provienen del dominio público y se usan con fines ilustrativos.</p>
 
         <nav class="mb-8 flex justify-center bg-black bg-opacity-20 border-y border-gray-800">
             <button id="nav-disciplines" class="nav-link active flex-1 p-3 text-lg font-bold text-gray-300 hover:bg-red-900/50 transition-colors">Disciplinas</button>
@@ -67,13 +95,13 @@
                     <input type="text" id="search-bar" placeholder="Buscar por nombre de disciplina o poder..." class="w-full bg-gray-900 border border-gray-700 rounded-md py-2 pl-10 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-red-600">
                 </div>
                 <div class="relative w-full md:w-1/2">
-                     <label for="clan-filter" class="sr-only">Filtrar por Clan</label>
-                     <select id="clan-filter" class="w-full bg-gray-900 border border-gray-700 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-red-600 appearance-none">
+                    <label for="clan-filter" class="sr-only">Filtrar por Clan</label>
+                    <select id="clan-filter" class="w-full bg-gray-900 border border-gray-700 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-red-600 appearance-none">
                         <!-- Opciones de clan se insertarán aquí -->
-                     </select>
-                     <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                    </select>
+                    <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-                     </span>
+                    </span>
                 </div>
             </div>
 
@@ -207,7 +235,416 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>
     </button>
 
-<script src="public/app.js"></script>
+<script>
+    // app.js content
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Data Definitions ---
+        const disciplinesData = [
+            {
+                name: "Animalismo",
+                description: "La disciplina de Animalismo permite al vampiro comunicarse con animales, controlarlos y, en niveles avanzados, incluso extraer su vitalidad o proyectar su conciencia en ellos.",
+                clans: ["Gangrel", "Nosferatu", "Ravnos"],
+                powers: [
+                    { level: 1, name: "Sentidos Bestiales", description: "El vampiro puede percibir el mundo a través de los sentidos de un animal cercano." },
+                    { level: 1, name: "Voz del Amo", description: "El vampiro puede calmar o enfurecer a los animales con su voz." },
+                    { level: 2, name: "Comunión con la Bestia", description: "Permite al vampiro comunicarse telepáticamente con los animales." },
+                    { level: 2, name: "Llamada de la Manada", description: "Invoca a animales de la zona para que acudan en ayuda del vampiro." },
+                    { level: 3, name: "Frenesí Inducido", description: "El vampiro puede provocar un frenesí incontrolable en un animal o mortal." },
+                    { level: 3, name: "Presa del Animal", description: "El vampiro puede hacer que un animal ataque a un objetivo específico." },
+                    { level: 4, name: "Subyugar a la Bestia", description: "El vampiro puede dominar completamente a un animal, convirtiéndolo en su sirviente leal." },
+                    { level: 4, name: "Robar la Vitalidad", description: "El vampiro puede drenar la fuerza vital de un animal para curarse a sí mismo." },
+                    { level: 5, name: "Corazón de la Bestia", description: "El vampiro puede transformar su cuerpo en una forma animal o asumir los rasgos de varios animales." },
+                    { level: 5, name: "Conciencia Compartida", description: "El vampiro puede proyectar su conciencia en un animal, controlando sus acciones y percibiendo a través de sus sentidos a distancia." }
+                ]
+            },
+            {
+                name: "Auspex",
+                description: "Auspex es la disciplina de los sentidos sobrenaturales, permitiendo al vampiro percibir más allá de lo mundano, detectar auras, prever el futuro y comunicarse telepáticamente.",
+                clans: ["Malkavian", "Toreador", "Tremere"],
+                powers: [
+                    { level: 1, name: "Sentidos Agudizados", description: "Mejora drásticamente los cinco sentidos del vampiro." },
+                    { level: 1, name: "Percepción del Aura", description: "Permite al vampiro ver el aura de otros seres, revelando su estado emocional y su verdadera naturaleza." },
+                    { level: 2, name: "Toque del Espíritu", description: "Al tocar un objeto, el vampiro puede percibir ecos psíquicos de eventos pasados relacionados con él." },
+                    { level: 2, name: "Visión Remota", description: "El vampiro puede ver y oír lo que ocurre en un lugar distante que conozca bien." },
+                    { level: 3, name: "Clarividencia", description: "El vampiro puede proyectar sus sentidos a cualquier lugar que pueda visualizar, sin necesidad de un objeto de enfoque." },
+                    { level: 3, name: "La Mente Desvelada", description: "Permite al vampiro leer pensamientos superficiales y detectar mentiras." },
+                    { level: 4, name: "Precognición", description: "El vampiro recibe visiones fragmentadas del futuro cercano, dándole una ventaja en situaciones peligrosas." },
+                    { level: 4, name: "Telepatía", description: "El vampiro puede comunicarse mentalmente con otros y, en niveles avanzados, incluso manipular sus pensamientos." },
+                    { level: 5, name: "Proyección Psíquica", description: "El vampiro puede separar su mente de su cuerpo, viajando como una entidad incorpórea y observando sin ser visto." },
+                    { level: 5, name: "Dominio Mental", description: "El vampiro puede implantar ideas complejas o recuerdos falsos en la mente de otros, o incluso tomar el control de sus cuerpos brevemente." }
+                ]
+            },
+            {
+                name: "Celeridad",
+                description: "Celeridad es la disciplina de la velocidad sobrenatural, permitiendo al vampiro moverse y reaccionar con una rapidez asombrosa, superando a los mortales y a la mayoría de los demás vampiros.",
+                clans: ["Brujah", "Toreador", "Ventrue"], // Ventrue can get it via Loresheet
+                powers: [
+                    { level: 1, name: "Reflejos Rápidos", description: "Aumenta la velocidad de reacción y agilidad del vampiro." },
+                    { level: 1, name: "Paso Veloz", description: "Permite al vampiro moverse a una velocidad que los mortales apenas pueden seguir." },
+                    { level: 2, name: "Ráfaga de Velocidad", description: "El vampiro puede realizar una acción adicional en un turno." },
+                    { level: 2, name: "Esquiva Sobrenatural", description: "Aumenta la capacidad del vampiro para esquivar ataques." },
+                    { level: 3, name: "Borrar", description: "El vampiro se mueve tan rápido que su imagen se difumina, dificultando ser golpeado." },
+                    { level: 3, name: "Golpe Relámpago", description: "Permite al vampiro realizar múltiples ataques en un solo turno." },
+                    { level: 4, name: "Movimiento Fluido", description: "El vampiro puede moverse a través de obstáculos o multitudes con facilidad y sin penalización." },
+                    { level: 4, name: "Reacción Instantánea", description: "El vampiro puede actuar antes que casi cualquier otro ser en una situación de combate." },
+                    { level: 5, name: "Velocidad de la Sombra", description: "El vampiro puede moverse tan rápido que parece teletransportarse, apareciendo y desapareciendo de la vista." },
+                    { level: 5, name: "Torbellino de Golpes", description: "El vampiro puede atacar a múltiples oponentes en un área con una ráfaga de golpes imparable." }
+                ]
+            },
+            {
+                name: "Dominación",
+                description: "Dominación es la disciplina de control mental, permitiendo al vampiro subyugar la voluntad de otros y obligarlos a obedecer sus órdenes, siempre que haya contacto visual.",
+                clans: ["Ventrue", "Tremere", "Tzimisce"], // Tzimisce can get it via Loresheet
+                powers: [
+                    { level: 1, name: "Mirada Imperiosa", description: "El vampiro puede dar una orden simple a un mortal que debe obedecer." },
+                    { level: 1, name: "Comando", description: "El vampiro puede dar una orden de una palabra a un mortal, que debe ser obedecida inmediatamente." },
+                    { level: 2, name: "Amnesia", description: "El vampiro puede borrar recuerdos recientes de la mente de un mortal." },
+                    { level: 2, name: "Olvidar", description: "El vampiro puede hacer que un mortal olvide un evento o un período de tiempo específico." },
+                    { level: 3, name: "La Mente Esclava", description: "El vampiro puede implantar una sugerencia compleja o una compulsión en la mente de un mortal." },
+                    { level: 3, name: "Condicionar", description: "El vampiro puede establecer una condición mental en un mortal que lo obliga a actuar de cierta manera cuando se cumple esa condición." },
+                    { level: 4, name: "Programar", description: "El vampiro puede implantar una serie de órdenes complejas y activadores en la mente de un mortal, convirtiéndolo en un 'durmiente'." },
+                    { level: 4, name: "Reemplazar Memoria", description: "El vampiro puede implantar recuerdos falsos en la mente de un mortal, reemplazando los verdaderos." },
+                    { level: 5, name: "Obediencia Absoluta", description: "El vampiro puede tomar el control total de la mente de un mortal, controlando sus acciones como si fueran suyas." },
+                    { level: 5, name: "Manipulación de Masas", description: "El vampiro puede influir en las emociones y acciones de una multitud de mortales, dirigiéndolos a su voluntad." }
+                ]
+            },
+            {
+                name: "Fortaleza",
+                description: "Fortaleza es la disciplina de la resistencia sobrenatural, haciendo al vampiro increíblemente resistente al daño físico y a las aflicciones, permitiéndole soportar ataques que destruirían a otros.",
+                clans: ["Gangrel", "Ventrue", "Brujah"], // Brujah can get it via Loresheet
+                powers: [
+                    { level: 1, name: "Aguante", description: "El vampiro puede ignorar el dolor y el shock de heridas menores." },
+                    { level: 1, name: "Resistencia al Daño", description: "Reduce el daño recibido de ataques físicos." },
+                    { level: 2, name: "Piel de Piedra", description: "La piel del vampiro se vuelve dura como la roca, otorgando mayor protección contra el daño." },
+                    { level: 2, name: "Ignorar Heridas", description: "El vampiro puede ignorar las penalizaciones por heridas graves." },
+                    { level: 3, name: "Voluntad Inquebrantable", description: "El vampiro es extremadamente resistente al control mental y a las compulsiones sobrenaturales." },
+                    { level: 3, name: "Carne de Acero", description: "El cuerpo del vampiro se vuelve tan duro como el acero, capaz de desviar balas y golpes con facilidad." },
+                    { level: 4, name: "Invulnerabilidad", description: "El vampiro se vuelve temporalmente inmune a ciertos tipos de daño o a ataques específicos." },
+                    { level: 4, name: "Rejuvenecimiento Rápido", description: "El vampiro puede curar heridas graves a una velocidad asombrosa, incluso en combate." },
+                    { level: 5, name: "Inmortalidad Verdadera", description: "El vampiro se vuelve casi indestructible, capaz de sobrevivir a heridas que matarían a cualquier otro ser." },
+                    { level: 5, name: "Escudo de Sangre", description: "El vampiro puede solidificar su sangre en una barrera protectora que desvía ataques." }
+                ]
+            },
+            {
+                name: "Ofuscación",
+                description: "Ofuscación es la disciplina del sigilo sobrenatural, permitiendo al vampiro volverse invisible, inaudible y pasar desapercibido, incluso en plena vista.",
+                clans: ["Nosferatu", "Malkavian", "Ministerios"],
+                powers: [
+                    { level: 1, name: "Manto de Sombras", description: "El vampiro se vuelve imperceptible si no se mueve o hace ruido." },
+                    { level: 1, name: "Presencia Olvidada", description: "Los mortales y otros seres simplemente no notan al vampiro a menos que este actúe para llamar la atención." },
+                    { level: 2, name: "Máscara de las Mil Caras", description: "El vampiro puede alterar su apariencia a voluntad, asumiendo la forma de cualquier persona que haya visto." },
+                    { level: 2, name: "Silencio de la Muerte", description: "El vampiro puede moverse sin hacer el menor ruido, incluso en superficies ruidosas." },
+                    { level: 3, name: "Desaparición", description: "El vampiro puede desaparecer de la vista de sus observadores en un instante." },
+                    { level: 3, name: "Camuflaje de Masas", description: "El vampiro puede extender su invisibilidad a un pequeño grupo de personas que lo acompañan." },
+                    { level: 4, name: "Velo de la Noche", description: "El vampiro puede crear una zona de oscuridad sobrenatural que oculta a todos dentro de ella." },
+                    { level: 4, name: "Fantasmas del Pasado", description: "El vampiro puede proyectar ilusiones visuales y auditivas convincentes para engañar a sus enemigos." },
+                    { level: 5, name: "Espejismo", description: "El vampiro puede crear una ilusión tan real que engaña a todos los sentidos, incluso al tacto." },
+                    { level: 5, name: "Sombra Andante", description: "El vampiro puede convertirse en una sombra bidimensional, capaz de deslizarse por rendijas y pasar desapercibido por completo." }
+                ]
+            },
+            {
+                name: "Potencia",
+                description: "Potencia es la disciplina de la fuerza sobrenatural, otorgando al vampiro una fuerza física inmensa que le permite realizar hazañas de poder que van más allá de la capacidad humana.",
+                clans: ["Brujah", "Nosferatu", "Ventrue"], // Ventrue can get it via Loresheet
+                powers: [
+                    { level: 1, name: "Puño de Hierro", description: "Aumenta la fuerza de los golpes del vampiro, permitiéndole infligir más daño en combate cuerpo a cuerpo." },
+                    { level: 1, name: "Golpe Demoledor", description: "El vampiro puede romper objetos inanimados con una facilidad sorprendente." },
+                    { level: 2, name: "Salto Asombroso", description: "El vampiro puede saltar distancias y alturas increíbles." },
+                    { level: 2, name: "Músculos de Acero", description: "Aumenta la capacidad del vampiro para levantar y mover objetos pesados." },
+                    { level: 3, name: "Fuerza Bruta", description: "El vampiro puede realizar hazañas de fuerza que desafían la lógica, como derribar muros o doblar barras de acero." },
+                    { level: 3, name: "Impacto Sísmico", description: "Al golpear el suelo, el vampiro puede crear una onda de choque que derriba a los oponentes cercanos." },
+                    { level: 4, name: "Carga Imparable", description: "El vampiro puede arremeter contra sus enemigos con una fuerza devastadora, derribándolos y causando un gran daño." },
+                    { level: 4, name: "Agarre de la Muerte", description: "El vampiro puede atrapar a un oponente con una fuerza tal que le resulta casi imposible escapar." },
+                    { level: 5, name: "Golpe de Cañón", description: "El vampiro puede lanzar objetos o personas con una fuerza comparable a la de un proyectil." },
+                    { level: 5, name: "Fuerza Titánica", description: "El vampiro alcanza un nivel de fuerza que le permite demoler edificios, arrancar árboles o enfrentarse a vehículos con sus propias manos." }
+                ]
+            },
+            {
+                name: "Presencia",
+                description: "Presencia es la disciplina de la seducción y la intimidación sobrenatural, permitiendo al vampiro influir en las emociones y percepciones de los demás, atrayéndolos o aterrorizándolos a voluntad.",
+                clans: ["Toreador", "Ventrue", "Ministerios"],
+                powers: [
+                    { level: 1, name: "Fascino", description: "El vampiro puede atraer la atención de una persona, haciéndola más receptiva a sus palabras." },
+                    { level: 1, name: "Awe", description: "El vampiro irradia un aura de carisma que hace que los demás se sientan atraídos por él y deseen complacerlo." },
+                    { level: 2, name: "Dread Gaze", description: "La mirada del vampiro puede infundir terror en el corazón de un mortal, paralizándolo de miedo." },
+                    { level: 2, name: "Majesty", description: "El vampiro exuda una autoridad innegable que obliga a los demás a mostrarle respeto y obediencia." },
+                    { level: 3, name: "Entrancement", description: "El vampiro puede sumir a una persona en un estado de trance, haciéndola totalmente susceptible a sus sugerencias." },
+                    { level: 3, name: "Summon", description: "El vampiro puede convocar a una persona que haya encontrado previamente, obligándola a acudir a su presencia." },
+                    { level: 4, name: "Inspiración", description: "El vampiro puede infundir valor y determinación en sus aliados, aumentando su moral y eficacia." },
+                    { level: 4, name: "Mortal Coil", description: "El vampiro puede manipular las emociones de una multitud, provocando disturbios, pánico o euforia." },
+                    { level: 5, name: "Grandeur", description: "El vampiro se vuelve una figura de una belleza o terror sobrenatural, capaz de subyugar a grandes multitudes con su sola presencia." },
+                    { level: 5, name: "Star Magnetism", description: "El vampiro puede convertirse en el centro de atención absoluto, haciendo que todos a su alrededor se sientan irresistiblemente atraídos hacia él." }
+                ]
+            },
+            {
+                name: "Protean",
+                description: "Protean es la disciplina de la transformación física, permitiendo al vampiro alterar su forma, crecer garras, fundirse con la tierra o convertirse en animal.",
+                clans: ["Gangrel", "Tzimisce"],
+                powers: [
+                    { level: 1, name: "Ojos de la Bestia", description: "Los ojos del vampiro brillan en la oscuridad, permitiéndole ver perfectamente en la penumbra." },
+                    { level: 1, name: "Garras de la Bestia", description: "El vampiro puede transformar sus dedos en garras afiladas, capaces de desgarrar carne y hueso." },
+                    { level: 2, name: "Piel de la Noche", description: "El vampiro puede fundirse con la tierra o una superficie similar, volviéndose indetectable hasta que emerge." },
+                    { level: 2, name: "Cambio de Forma Menor", description: "El vampiro puede realizar pequeñas alteraciones en su apariencia, como cambiar el color de su piel o el largo de su cabello." },
+                    { level: 3, name: "Forma de Lobo", description: "El vampiro puede transformarse en un lobo grande y feroz." },
+                    { level: 3, name: "Forma de Murciélago", description: "El vampiro puede transformarse en un murciélago, lo que le permite volar." },
+                    { level: 4, name: "Forma de Niebla", description: "El vampiro puede transformarse en una niebla densa, volviéndose intangible e inmune a la mayoría de los ataques físicos." },
+                    { level: 4, name: "Corazón de la Tierra", description: "El vampiro puede sanar sus heridas más rápidamente mientras está fundido con la tierra." },
+                    { level: 5, name: "Forma de Bestia Primordial", description: "El vampiro puede transformarse en una criatura monstruosa de gran tamaño y poder, combinando rasgos de varios animales." },
+                    { level: 5, name: "Dominio de la Naturaleza", description: "El vampiro puede manipular el entorno natural a su alrededor, haciendo crecer plantas, controlar el clima o provocar pequeños terremotos." }
+                ]
+            },
+            {
+                name: "Taumaturgia (Blood Sorcery)",
+                description: "La Taumaturgia, o Hechicería de Sangre, es una disciplina compleja que permite al vampiro manipular la sangre y la energía vital para lograr diversos efectos mágicos.",
+                clans: ["Tremere"],
+                powers: [
+                    { level: 1, name: "Senda del Corazón Sangriento: Afilado de Sangre", description: "El vampiro puede afilar sus armas o sus propias garras con su sangre, haciéndolas más letales." },
+                    { level: 1, name: "Senda del Corazón Sangriento: Sentir la Sangre", description: "El vampiro puede detectar la presencia y el tipo de sangre a su alrededor." },
+                    { level: 2, name: "Senda del Corazón Sangriento: Vínculo de Sangre", description: "El vampiro puede crear un vínculo de sangre con un mortal o animal, subyugándolo a su voluntad." },
+                    { level: 2, name: "Senda del Corazón Sangriento: Robo de Vitalidad", description: "El vampiro puede drenar la vitalidad de un mortal a distancia." },
+                    { level: 3, name: "Senda del Corazón Sangriento: Sangre Hirviente", description: "El vampiro puede hacer que la sangre de un objetivo hierva en sus venas, causando un dolor insoportable." },
+                    { level: 3, name: "Senda del Corazón Sangriento: Escudo de Sangre", description: "El vampiro puede crear un escudo protector de sangre solidificada." },
+                    { level: 4, name: "Senda del Corazón Sangriento: Corazón de la Bestia", description: "El vampiro puede controlar el flujo de sangre en el cuerpo de un objetivo, causando parálisis o hemorragias internas." },
+                    { level: 4, name: "Senda del Corazón Sangriento: Ofrenda de Sangre", description: "El vampiro puede transferir su propia sangre o la de otro a un objetivo, curándolo o potenciándolo." },
+                    { level: 5, name: "Senda del Corazón Sangriento: Armadura de Sangre", description: "El vampiro puede transformar su propia sangre en una armadura densa y protectora." },
+                    { level: 5, name: "Senda del Corazón Sangriento: Maldición de Sangre", description: "El vampiro puede imponer una maldición debilitante a un objetivo, afectando su salud o sus habilidades." }
+                ]
+            },
+            {
+                name: "Quimerismo",
+                description: "Quimerismo es la disciplina de la ilusión, permitiendo al vampiro crear ilusiones tan vívidas que engañan a todos los sentidos, incluso al tacto.",
+                clans: ["Ravnos"],
+                powers: [
+                    { level: 1, name: "Fata Morgana", description: "El vampiro puede crear ilusiones simples y estáticas que afectan a un solo sentido." },
+                    { level: 1, name: "Manto de Ilusión", description: "El vampiro puede alterar ligeramente su propia apariencia o la de un objeto pequeño." },
+                    { level: 2, name: "Ignis Fatuus", description: "El vampiro puede crear ilusiones dinámicas y en movimiento que afectan a múltiples sentidos." },
+                    { level: 2, name: "Voz Engañosa", description: "El vampiro puede proyectar su voz a cualquier lugar dentro de su línea de visión." },
+                    { level: 3, name: "Horror Real", description: "Las ilusiones del vampiro son tan convincentes que pueden infligir daño psicológico real a quienes las perciben." },
+                    { level: 3, name: "Espejismo de Masas", description: "El vampiro puede crear una ilusión compleja que afecta a un grupo de personas." },
+                    { level: 4, name: "Fantasmas del Pasado", description: "El vampiro puede recrear eventos pasados con una fidelidad asombrosa, haciendo que los testigos crean que están reviviendo esos momentos." },
+                    { level: 4, name: "Realidad Alterada", description: "El vampiro puede hacer que sus ilusiones sean tan tangibles que pueden interactuar con el entorno físico, aunque sea brevemente." },
+                    { level: 5, name: "Sueño Viviente", description: "El vampiro puede atrapar a un objetivo en una ilusión tan poderosa que se convierte en su propia realidad, incapaz de distinguir entre lo real y lo falso." },
+                    { level: 5, name: "Creación Perfecta", description: "El vampiro puede crear una ilusión completamente real y tangible que persiste incluso después de que el vampiro se haya ido." }
+                ]
+            },
+            {
+                name: "Dementación",
+                description: "Dementación es la disciplina de la locura, permitiendo al vampiro manipular las mentes de otros, infligirles ilusiones aterradoras, paranoia y una profunda inestabilidad mental.",
+                clans: ["Malkavian"],
+                powers: [
+                    { level: 1, name: "Toque de Locura", description: "El vampiro puede infundir una breve pero intensa sensación de locura en un mortal con un toque." },
+                    { level: 1, name: "Murmullos de la Mente", description: "El vampiro puede enviar susurros o imágenes perturbadoras directamente a la mente de un objetivo." },
+                    { level: 2, name: "Obnubilación", description: "El vampiro puede hacer que un objetivo se confunda y pierda el sentido de la realidad, dificultando sus acciones." },
+                    { level: 2, name: "Voz del Demonio", description: "El vampiro puede hacer que una voz incorpórea atormente a un objetivo, solo audible para él." },
+                    { level: 3, name: "Aura de Desesperación", description: "El vampiro irradia un aura de desesperación que afecta a todos a su alrededor, sumiéndolos en la tristeza y la apatía." },
+                    { level: 3, name: "Visión de la Locura", description: "El vampiro puede implantar una visión aterradora o una alucinación en la mente de un objetivo." },
+                    { level: 4, name: "La Mente Retorcida", description: "El vampiro puede manipular los recuerdos y percepciones de un objetivo, haciéndolos dudar de su propia cordura." },
+                    { level: 4, name: "Espejo de la Locura", description: "El vampiro puede reflejar la locura de un objetivo de vuelta hacia él, haciéndolo sufrir sus propias aflicciones." },
+                    { level: 5, name: "Locura Colectiva", description: "El vampiro puede inducir un frenesí de locura en una multitud, provocando caos y violencia incontrolable." },
+                    { level: 5, name: "Abrazo de la Locura", description: "El vampiro puede sumir a un objetivo en una locura permanente e incurable, dejándolo como un cascarón vacío." }
+                ]
+            }
+            // Add more disciplines as needed
+        ];
+
+        const clansData = [
+            "Todos los Clanes",
+            "Brujah",
+            "Gangrel",
+            "Malkavian",
+            "Ministerios",
+            "Nosferatu",
+            "Ravnos",
+            "Toreador",
+            "Tremere",
+            "Tzimisce",
+            "Ventrue"
+        ];
+
+        // --- DOM Elements ---
+        const navDisciplinesBtn = document.getElementById('nav-disciplines');
+        const navCharCreationBtn = document.getElementById('nav-char-creation');
+        const navClanLoreBtn = document.getElementById('nav-clan-lore');
+
+        const disciplinesView = document.getElementById('disciplines-view');
+        const characterCreationView = document.getElementById('character-creation-view');
+        const clanLoreView = document.getElementById('clan-lore-view');
+
+        const disciplineList = document.getElementById('discipline-list');
+        const disciplineContent = document.getElementById('discipline-content');
+        const searchBar = document.getElementById('search-bar');
+        const clanFilter = document.getElementById('clan-filter');
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        let activeDisciplineButton = null; // To keep track of the currently active discipline button
+
+        // --- Functions ---
+
+        /**
+         * Switches the active content section.
+         * @param {HTMLElement} targetView The view to activate.
+         * @param {HTMLElement} targetNavButton The navigation button to activate.
+         */
+        function switchView(targetView, targetNavButton) {
+            // Deactivate all content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Deactivate all nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Activate the target view and nav button
+            targetView.classList.add('active');
+            targetNavButton.classList.add('active');
+
+            // Scroll to the top of the content area for better UX
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /**
+         * Populates the clan filter dropdown.
+         */
+        function populateClanFilter() {
+            clanFilter.innerHTML = ''; // Clear existing options
+            clansData.forEach(clan => {
+                const option = document.createElement('option');
+                option.value = clan === "Todos los Clanes" ? "" : clan;
+                option.textContent = clan;
+                clanFilter.appendChild(option);
+            });
+        }
+
+        /**
+         * Displays the details of a selected discipline.
+         * @param {Object} discipline The discipline object to display.
+         */
+        function displayDisciplineDetails(discipline) {
+            let powersHtml = discipline.powers.map(power => `
+                <div class="mb-4 p-4 bg-gray-900 rounded-md border border-gray-700">
+                    <h4 class="text-xl font-semibold text-yellow-300 mb-2">Nivel ${power.level}: ${power.name}</h4>
+                    <p class="text-gray-400">${power.description}</p>
+                </div>
+            `).join('');
+
+            disciplineContent.innerHTML = `
+                <div class="bg-black bg-opacity-20 p-6 md:p-8 rounded-lg border border-gray-800">
+                    <h2 class="text-4xl font-bold text-red-500 mb-4">${discipline.name}</h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">${discipline.description}</p>
+                    <p class="text-gray-400 mb-6"><strong>Clanes Asociados:</strong> ${discipline.clans.join(', ')}</p>
+                    <h3 class="text-2xl font-bold text-yellow-400 mb-4 border-b-2 border-red-800 pb-2">Poderes</h3>
+                    <div class="space-y-6">
+                        ${powersHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        /**
+         * Renders the list of disciplines based on current filters and search.
+         */
+        function renderDisciplineList() {
+            const searchTerm = searchBar.value.toLowerCase();
+            const selectedClan = clanFilter.value;
+
+            const filteredDisciplines = disciplinesData.filter(discipline => {
+                const matchesSearch = discipline.name.toLowerCase().includes(searchTerm) ||
+                                      discipline.powers.some(power => power.name.toLowerCase().includes(searchTerm) ||
+                                                                      power.description.toLowerCase().includes(searchTerm));
+                const matchesClan = selectedClan === "" || discipline.clans.includes(selectedClan);
+                return matchesSearch && matchesClan;
+            });
+
+            disciplineList.innerHTML = ''; // Clear current list
+
+            if (filteredDisciplines.length === 0) {
+                disciplineList.innerHTML = '<li class="text-gray-500 text-center py-4">No se encontraron disciplinas.</li>';
+                disciplineContent.innerHTML = `
+                    <div class="text-center text-gray-500 bg-black bg-opacity-20 p-10 rounded-lg border border-gray-800">
+                        <p>No se encontraron disciplinas que coincidan con tu búsqueda o filtro.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filteredDisciplines.forEach(discipline => {
+                const listItem = document.createElement('li');
+                const button = document.createElement('button');
+                button.textContent = discipline.name;
+                button.classList.add('discipline-btn', 'block', 'w-full', 'text-left', 'py-2', 'px-4', 'rounded-md', 'text-gray-300', 'hover:bg-red-900/50', 'focus:outline-none', 'focus:ring-2', 'focus:ring-red-600', 'border-l-4', 'border-transparent');
+                button.dataset.disciplineName = discipline.name; // Store name for easy lookup
+
+                button.addEventListener('click', () => {
+                    // Remove active class from previous button
+                    if (activeDisciplineButton) {
+                        activeDisciplineButton.classList.remove('active');
+                    }
+                    // Add active class to current button
+                    button.classList.add('active');
+                    activeDisciplineButton = button;
+
+                    displayDisciplineDetails(discipline);
+                });
+                listItem.appendChild(button);
+                disciplineList.appendChild(listItem);
+            });
+
+            // Automatically select the first discipline if none is active or if filters changed
+            if (!activeDisciplineButton || !filteredDisciplines.some(d => d.name === activeDisciplineButton.dataset.disciplineName)) {
+                if (filteredDisciplines.length > 0) {
+                    const firstDisciplineButton = disciplineList.querySelector('.discipline-btn');
+                    if (firstDisciplineButton) {
+                        firstDisciplineButton.click(); // Simulate click to display details
+                    }
+                } else {
+                    disciplineContent.innerHTML = `
+                        <div class="text-center text-gray-500 bg-black bg-opacity-20 p-10 rounded-lg border border-gray-800">
+                            <p>No se encontraron disciplinas que coincidan con tu búsqueda o filtro.</p>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        // --- Event Listeners ---
+
+        // Navigation buttons
+        navDisciplinesBtn.addEventListener('click', () => {
+            switchView(disciplinesView, navDisciplinesBtn);
+            renderDisciplineList(); // Re-render disciplines when switching back
+        });
+        navCharCreationBtn.addEventListener('click', () => {
+            switchView(characterCreationView, navCharCreationBtn);
+        });
+        navClanLoreBtn.addEventListener('click', () => {
+            switchView(clanLoreView, navClanLoreBtn);
+        });
+
+        // Search and Filter
+        searchBar.addEventListener('input', renderDisciplineList);
+        clanFilter.addEventListener('change', renderDisciplineList);
+
+        // Back to Top button functionality
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // --- Initial Load ---
+        populateClanFilter();
+        renderDisciplineList(); // Initial render of discipline list and content
+    });
+</script>
 
 </body>
 </html>
