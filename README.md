@@ -21,3 +21,13 @@ npx http-server # o npx serve
 
 `index.html` está en la raíz del proyecto, por lo que al abrir `http://localhost:<puerto>` podrás ver la aplicación.
 
+## Cheat Sheet en Español
+
+El directorio `public/` contiene `vtm-v5-espanol.tex`, una versión en LaTeX de una hoja de referencia. Para consultarla desde la web se incluye el archivo `vtm-v5-espanol.html` generado con Pandoc:
+
+```bash
+pandoc public/vtm-v5-espanol.tex -s -o public/vtm-v5-espanol.html
+```
+
+Navega hasta la opción **Cheat Sheet** en el menú para abrirla en una pestaña nueva.
+
