@@ -488,7 +488,27 @@
         const searchBar = document.getElementById('search-bar');
         const clanFilter = document.getElementById('clan-filter');
         const backToTopButton = document.getElementById('back-to-top');
+        
+        const disciplinesView = document.getElementById('disciplines-view');
+        const charCreationView = document.getElementById('character-creation-view');
+        const navDisciplines = document.getElementById('nav-disciplines');
+        const navCharCreation = document.getElementById('nav-char-creation');
+        
         let currentDiscipline = null;
+
+        function switchView(viewName) {
+            if (viewName === 'disciplines') {
+                disciplinesView.classList.add('active');
+                charCreationView.classList.remove('active');
+                navDisciplines.classList.add('active');
+                navCharCreation.classList.remove('active');
+            } else if (viewName === 'char-creation') {
+                disciplinesView.classList.remove('active');
+                charCreationView.classList.add('active');
+                navDisciplines.classList.remove('active');
+                navCharCreation.classList.add('active');
+            }
+        }
 
         // Función para renderizar el contenido de una disciplina
         function renderDiscipline(disciplineName) {
@@ -627,9 +647,13 @@
 
             populateClanFilter();
 
-            // Event Listeners
+            // Event Listeners for filters
             searchBar.addEventListener('input', filterAndRenderNav);
             clanFilter.addEventListener('change', filterAndRenderNav);
+
+            // Event Listeners for view switching
+            navDisciplines.addEventListener('click', () => switchView('disciplines'));
+            navCharCreation.addEventListener('click', () => switchView('char-creation'));
 
             // Back to top button
             window.addEventListener('scroll', () => {
@@ -643,7 +667,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // Cargar la primera disciplina por defecto si no hay ninguna seleccionada
+            // Load default view
             if (sortedKeys.length > 0) {
                 renderDiscipline(currentDiscipline || sortedKeys[0]);
             }
