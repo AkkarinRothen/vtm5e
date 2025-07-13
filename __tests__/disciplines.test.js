@@ -1,4 +1,5 @@
-const disciplines = require('../loadDisciplines');
+const loadDisciplines = require('../loadDisciplines');
+const disciplines = loadDisciplines();
 
 test('all disciplines contain required fields', () => {
   for (const [key, d] of Object.entries(disciplines)) {
