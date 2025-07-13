@@ -18,6 +18,10 @@
             font-family: 'Cinzel Decorative', serif;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
+        .nav-link.active {
+            background-color: #991B1B;
+            color: #F3F4F6;
+        }
         .discipline-btn.active {
             background-color: #991B1B; /* bg-red-800 */
             color: #F3F4F6; /* text-gray-100 */
@@ -26,53 +30,116 @@
         #back-to-top {
             transition: opacity 0.3s, visibility 0.3s;
         }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
     </style>
 </head>
 <body class="text-gray-300">
 
     <div class="container mx-auto p-4 md:p-6 lg:p-8">
-        <header class="text-center mb-8">
-            <h1 class="text-4xl md:text-6xl font-bold text-red-600">Visor de Disciplinas</h1>
+        <header class="text-center mb-4">
+            <h1 class="text-4xl md:text-6xl font-bold text-red-600">Guía del Vástago</h1>
             <p class="text-gray-400 mt-2 text-lg">Vampiro: La Mascarada 5ª Edición</p>
         </header>
 
-        <!-- Controles de Búsqueda y Filtro -->
-        <div class="mb-8 p-4 bg-black bg-opacity-20 rounded-lg backdrop-blur-sm border border-gray-800 flex flex-col md:flex-row gap-4 items-center sticky top-4 z-10">
-            <div class="relative w-full md:w-1/2">
-                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" /></svg>
-                </span>
-                <input type="text" id="search-bar" placeholder="Buscar por nombre de disciplina o poder..." class="w-full bg-gray-900 border border-gray-700 rounded-md py-2 pl-10 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-red-600">
+        <nav class="mb-8 flex justify-center bg-black bg-opacity-20 border-y border-gray-800">
+            <button id="nav-disciplines" class="nav-link active flex-1 p-3 text-lg font-bold text-gray-300 hover:bg-red-900/50 transition-colors">Disciplinas</button>
+            <button id="nav-char-creation" class="nav-link flex-1 p-3 text-lg font-bold text-gray-300 hover:bg-red-900/50 transition-colors border-l border-gray-800">Creación de Personaje</button>
+        </nav>
+
+        <div id="disciplines-view" class="content-section active">
+            <!-- Controles de Búsqueda y Filtro -->
+            <div id="controls-section" class="mb-8 p-4 bg-black bg-opacity-20 rounded-lg backdrop-blur-sm border border-gray-800 flex flex-col md:flex-row gap-4 items-center sticky top-4 z-10">
+                <div class="relative w-full md:w-1/2">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" /></svg>
+                    </span>
+                    <input type="text" id="search-bar" placeholder="Buscar por nombre de disciplina o poder..." class="w-full bg-gray-900 border border-gray-700 rounded-md py-2 pl-10 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-red-600">
+                </div>
+                <div class="relative w-full md:w-1/2">
+                     <label for="clan-filter" class="sr-only">Filtrar por Clan</label>
+                     <select id="clan-filter" class="w-full bg-gray-900 border border-gray-700 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-red-600 appearance-none">
+                        <!-- Opciones de clan se insertarán aquí -->
+                     </select>
+                     <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                     </span>
+                </div>
             </div>
-            <div class="relative w-full md:w-1/2">
-                 <label for="clan-filter" class="sr-only">Filtrar por Clan</label>
-                 <select id="clan-filter" class="w-full bg-gray-900 border border-gray-700 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-red-600 appearance-none">
-                    <!-- Opciones de clan se insertarán aquí -->
-                 </select>
-                 <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-                 </span>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <aside class="lg:w-1/3 xl:w-1/4">
+                    <nav id="discipline-nav" class="bg-black bg-opacity-20 p-4 rounded-lg border border-gray-800 sticky top-32">
+                        <h2 class="text-2xl font-bold mb-4 text-red-500">Disciplinas</h2>
+                        <ul id="discipline-list" class="space-y-1 h-[60vh] overflow-y-auto pr-2">
+                            <!-- Los botones de las disciplinas se insertarán aquí -->
+                        </ul>
+                    </nav>
+                </aside>
+                <main id="discipline-content" class="lg:w-2/3 xl:w-3/4">
+                    <div class="text-center text-gray-500 bg-black bg-opacity-20 p-10 rounded-lg border border-gray-800">
+                        <p>Selecciona una disciplina de la lista para ver sus detalles.</p>
+                    </div>
+                </main>
             </div>
         </div>
 
-        <div class="flex flex-col lg:flex-row gap-8">
-            <!-- Barra lateral de navegación de Disciplinas -->
-            <aside class="lg:w-1/3 xl:w-1/4">
-                <nav id="discipline-nav" class="bg-black bg-opacity-20 p-4 rounded-lg border border-gray-800 sticky top-32">
-                    <h2 class="text-2xl font-bold mb-4 text-red-500">Disciplinas</h2>
-                    <ul id="discipline-list" class="space-y-1 h-[60vh] overflow-y-auto pr-2">
-                        <!-- Los botones de las disciplinas se insertarán aquí -->
-                    </ul>
-                </nav>
-            </aside>
-
-            <!-- Contenido principal de la Disciplina -->
-            <main id="discipline-content" class="lg:w-2/3 xl:w-3/4">
-                <!-- El contenido de la disciplina seleccionada se mostrará aquí -->
-                <div class="text-center text-gray-500 bg-black bg-opacity-20 p-10 rounded-lg border border-gray-800">
-                    <p>Selecciona una disciplina de la lista para ver sus detalles.</p>
+        <div id="character-creation-view" class="content-section">
+            <div class="bg-black bg-opacity-20 p-6 md:p-8 rounded-lg border border-gray-800">
+                <h2 class="text-4xl font-bold text-red-500 mb-6 border-b-2 border-red-800 pb-4">Creación de Personaje</h2>
+                <div class="space-y-8 text-gray-300 leading-relaxed">
+                    <div>
+                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 1: Concepto Central</h3>
+                        <p><strong class="text-gray-400">¿Quién eras?</strong> Antes del Abrazo, tu personaje era un mortal con una vida, esperanzas y miedos. Define un concepto simple (p. ej., "Médico desilusionado", "Artista callejero", "Activista político").</p>
+                        <p><strong class="text-gray-400">¿Quién eres ahora?</strong> El Abrazo lo cambió todo. ¿Cómo ha afectado tu concepto mortal? ¿Te aferras a tu antigua vida o la has abandonado por completo?</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 2: Clan y Sire</h3>
+                        <p>Tu clan define tu linaje, tus debilidades inherentes (la Plaga del clan) y tus afinidades con las Disciplinas. Define también a tu Sire: ¿quién te Abrazó y por qué? Tu relación con tu sire puede ser una fuente importante de historias.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 3: Atributos</h3>
+                        <p>Distribuyes puntos en tres categorías: Físicos, Sociales y Mentales. Elige una categoría como primaria (4 puntos), una como secundaria (3 puntos) y una como terciaria (2 puntos). Asigna estos puntos entre los tres Atributos de cada categoría. Todos los Atributos comienzan con un punto gratis.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 4: Habilidades</h3>
+                        <p>Elige una distribución: <strong class="text-gray-400">Especialista</strong> (una Habilidad a 3, tres a 2, cinco a 1) o <strong class="text-gray-400">Equilibrado</strong> (tres Habilidades a 2, ocho a 1).</p>
+                    </div>
+                     <div>
+                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 5: Disciplinas</h3>
+                        <p>Recibes dos puntos para gastar en las Disciplinas de tu clan. Puedes poner ambos puntos en una Disciplina o un punto en dos Disciplinas diferentes.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 6: Tipo de Depredador</h3>
+                        <p>Elige un tipo de depredador. Esto define cómo cazas y te otorga una especialidad de Habilidad, puntos adicionales en Disciplinas y Ventajas (Méritos y Trasfondos), pero también puede añadir Manchas a tu Humanidad.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 7: Ventajas</h3>
+                        <p>Gasta 7 puntos en Trasfondos y Méritos. Puedes tomar hasta 7 puntos en Defectos para ganar puntos adicionales.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 8: Convicciones y Piedras de Toque</h3>
+                        <p>Establece de 1 a 3 Convicciones (reglas morales) y para cada una, una Piedra de Toque (un mortal que la personifica).</p>
+                    </div>
+                     <div>
+                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 9: Humanidad y Hambre</h3>
+                        <p>Tu Humanidad inicial es 7, menos las Manchas de tu tipo de depredador. Tu Hambre inicial es 1.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 10: Toques Finales</h3>
+                        <ul class="list-disc list-inside ml-4">
+                            <li><strong class="text-gray-400">Salud:</strong> Resistencia + 3</li>
+                            <li><strong class="text-gray-400">Fuerza de Voluntad:</strong> Compostura + Resolución</li>
+                            <li><strong class="text-gray-400">Potencia de Sangre:</strong> 1 para neonatos, 0 para Sangre Débil.</li>
+                            <li>Gasta 15 puntos de experiencia gratuita para mejorar tu personaje.</li>
+                        </ul>
+                    </div>
                 </div>
-            </main>
+            </div>
         </div>
 
         <footer class="text-center mt-12 text-gray-600 text-sm">
