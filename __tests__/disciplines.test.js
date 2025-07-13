@@ -1,5 +1,4 @@
-const loadDisciplines = require('../loadDisciplines');
-const disciplines = loadDisciplines();
+const disciplines = require("../public/data/disciplines.json");
 
 describe('discipline data integrity', () => {
   test('all disciplines contain required fields and powers', () => {

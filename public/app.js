@@ -12,6 +12,7 @@ const clanLoreView = document.getElementById('clan-lore-view');
 const navDisciplines = document.getElementById('nav-disciplines');
 const navCharCreation = document.getElementById('nav-char-creation');
 const navClanLore = document.getElementById('nav-clan-lore');
+let disciplines = {};
 
 let currentDiscipline = null;
 
@@ -203,4 +204,9 @@ function initialize() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', initialize);
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('public/data/disciplines.json')
+        .then(r => r.json())
+        .then(data => { disciplines = data; initialize(); })
+        .catch(err => console.error('Failed to load disciplines:', err));
+});
