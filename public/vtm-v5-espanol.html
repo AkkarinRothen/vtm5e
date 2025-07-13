@@ -6,531 +6,291 @@
     <title>Vtm V5 Español Cheat Sheet</title>
     <meta name="author" content="enbeetreee">
     <meta name="subject" content="Vtm V5 Español Cheat Sheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Custom styles to match the original theme */
         body {
-            font-family: sans-serif;
-            color: #333333;
-            background-color: #FFFFFF;
-            margin: 0;
-            padding: 2cm;
-            font-size: 10pt;
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Tailwind's gray-50 */
         }
-        .page-container {
-            position: relative;
-            min-height: 297mm; /* A4 height */
-            width: 210mm; /* A4 width */
-            margin: auto;
+        :root {
+            --color-primary: #8A110C;
+            --color-secondary: #333333;
+            --color-light-bg: #FBF7F7;
+            --color-footer-bg: #666666;
         }
-        header, footer {
-            position: absolute;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            font-size: 9pt;
-        }
-        header {
-            top: 1cm;
-            height: 85pt;
-            align-items: center;
-        }
-        .header-col1 img {
-            width: 5.8cm;
-        }
-        .header-col2 {
-            padding-left: 1cm;
-        }
-        .header-col2 h1 {
-            font-size: 1.2em;
-            color: #8A110C;
-            margin: 0;
-        }
-        .header-col2 p {
-            margin: 0;
-            font-size: 1em;
-        }
-        .header-col2 a {
-            color: #8A110C;
-        }
-
-        footer {
-            bottom: 1cm;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 1cm;
-            color: #FFFFFF;
-        }
-        .footer-col {
-            background-color: #666666;
-            padding: 8px;
-        }
-        .footer-col h3 {
-            margin: 0 0 5px 0;
-            font-size: 1em;
+        .bg-primary { background-color: var(--color-primary); }
+        .text-primary { color: var(--color-primary); }
+        .bg-light { background-color: var(--color-light-bg); }
+        .bg-footer { background-color: var(--color-footer-bg); }
+        .table-header {
+            background-color: var(--color-primary);
+            color: white;
             font-weight: bold;
+            padding: 0.75rem;
+            font-size: 1.125rem;
         }
-        .footer-col p {
-            margin: 0;
-            font-size: 0.9em;
-            background-color: #FFFFFF;
-            color: #333333;
-            padding: 5px;
-        }
-        .footer-col .info {
-             background-color: transparent;
-             color: #FFFFFF;
-             padding: 0;
-        }
-        
-        main {
-            padding-top: 100pt; /* Space for header */
-            padding-bottom: 150pt; /* Space for footer */
-            column-count: 2;
-            column-gap: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 1.3em;
-            -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
-            page-break-inside: avoid;            /* Firefox */
-            break-inside: avoid;                 /* IE 10+ */
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-            vertical-align: top;
-            font-size: 9pt;
-            line-height: 1.5;
-        }
-        th {
-            background-color: #8A110C;
-            color: #FFFFFF;
-            font-weight: bold;
-        }
-        .dark-bg { background-color: #8A110C; color: #FFFFFF; font-weight: bold; }
-        .light-bg { background-color: #FBF7F7; }
-        .white-bg { background-color: #FFFFFF; }
-        
-        /* Utility */
-        .seqsplit {
-            word-break: break-all;
-            hyphens: auto;
+        .table-card {
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
     </style>
 </head>
-<body>
+<body class="text-gray-800">
 
-    <header>
-        <div class="header-col1">
-            <img src="https://cheatography.com/images/cheatography_logo.png" alt="Cheatography Logo">
-        </div>
-        <div class="header-col2">
-            <h1>Vtm V5 Español Cheat Sheet</h1>
-            <p>by <strong>enbeetreee</strong> via <a href="https://cheatography.com/212704/cs/46265/"><u>cheatography.com/212704/cs/46265/</u></a></p>
-        </div>
-    </header>
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
 
-    <main>
-        <div class="column">
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="4">Compulsiones Generales</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="light-bg">
-                        <td><strong>Compulsión</strong></td>
-                        <td><strong>Ejemplos Sociales</strong></td>
-                        <td><strong>Ejemplos Violentos</strong></td>
-                        <td><strong>Ejemplos Solitarios</strong></td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td>1-3: Ansia</td>
-                        <td>En vez de interrogar a los testigos mortales, el vampiro hace avanzar la situación hacia una seducción.</td>
-                        <td>El vampiro desecha su arma y se lanza de cabeza a un combate cuerpo a cuerpo, <span class="seqsplit">determinado</span> a <span class="seqsplit">alimentarse</span>.</td>
-                        <td>El vampiro decide que necesita tomarse un descanso y por casualidad acaba en un club nocturno lleno de sudor.</td>
-                    </tr>
-                    <tr class="light-bg">
-                        <td>4-5: <span class="seqsplit">Supremacía</span></td>
-                        <td>El vampiro convierte una <span class="seqsplit">conversación</span> civilizada en un ejercicio de ponerse por delante de los demás, provocando la enemistad de la persona cuya confianza quería obtener.</td>
-                        <td>En vez de <span class="seqsplit">concentrarse</span> en su objetivo, el vampiro hace una pausa para juguetear con un oponente mortal y disfrutar de su <span class="seqsplit">superioridad</span>.</td>
-                        <td>El vampiro se obsesiona con la idea de alcanzar su objetivo de una forma innovadora, <span class="seqsplit">probándose</span> así su <span class="seqsplit">superioridad</span> a sí mismo y al mundo.</td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td>6-7: Daño</td>
-                        <td>Una <span class="seqsplit">presentación</span> tranquila se echa a perder cuando el vampiro comienza a acosar y a torturar <span class="seqsplit">psicológicamente</span> al sujeto.</td>
-                        <td>En vez dejar de lado al adversario <span class="seqsplit">incapacitado</span>, el vampiro empieza a atacar al oponente <span class="seqsplit">inconsciente</span> con salvajismo y regocijo.</td>
-                        <td>Frustrado por una pequeña molestia, el vampiro usa un bate de béisbol contra su caro equipo <span class="seqsplit">informático</span>.</td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- Header -->
+        <header class="border-b-2 border-primary pb-4 mb-8">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-primary">Vtm V5 Español Cheat Sheet</h1>
+                    <p class="text-gray-600 mt-1">
+                        Por <strong class="text-primary">enbeetreee</strong> vía <a href="https://cheatography.com/212704/cs/46265/" class="text-primary underline hover:text-red-800">cheatography.com/212704/cs/46265/</a>
+                    </p>
+                </div>
+                <img src="https://placehold.co/200x60/8A110C/FFFFFF?text=Logo" alt="Logo Cheatography" class="rounded-lg w-48 sm:w-auto">
+            </div>
+        </header>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="4">Compulsiones Generales (cont)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="light-bg">
-                        <td>8-9 <span class="seqsplit">Paranoia</span></td>
-                        <td colspan="3">El vampiro trata a todo el mundo con sospecha e intenta escapar de todos los <span class="seqsplit">compromisos.</span> El vampiro intenta poner fin o escapar del peligro por todos los medios, corriendo o suplicando por su vida. El vampiro ve amenazas donde no existe ninguna, ataca y huye, y se obsesiona con símbolos ocultistas sin <span class="seqsplit">importancia</span> o con extrañas <span class="seqsplit">coincidencias</span>.</td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td colspan="4">10: Compulsión de Clan</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="3">Compulsión de Clan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="light-bg">
-                        <td><strong>Brujah: Rebelión</strong></td>
-                        <td><strong>Gangrel: Impulsos animales</strong></td>
-                        <td><strong>Malkavian: Delirio</strong></td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td>El vampiro se opone a cualquier cosa o persona que considere que representa el statu quo en su situación, se trate de su líder, un punto de vista expresado por un recipiente en potencia o simplemente la tarea que se suponía que debía llevar a cabo. Hasta que haya actuado en contra de sus órdenes o de lo que se espera de ellos (ya sean reales o percibidas de forma subjetiva), el vampiro recibe una penalización de dos dados a todas las tiradas. Esta Compulsión acaba cuando logra que alguien cambie de opinión (por la fuerza, si es necesario) o hace lo contrario de lo que se esperaba de él.</td>
-                        <td>Impulsos animales Al retornar a un estado animal, el vampiro revierte a un punto en el que hablar es difícil, la ropa es incómoda y la mejor manera de resolver las disputas es mediante garras y dientes. Durante una escena, se aplica una penalización de tres dados a todas las tiradas del vampiro en las que estén implicadas la Manipulación y la Inteligencia. Durante ese tiempo sólo pueden pronunciar frases de una sola palabra.</td>
-                        <td>El vampiro, cuyos dones extrasensoriales se desbocan, experimenta lo que podrían ser verdades o portentos, pero que los demás llaman productos de su imaginación que el Ansia saca a la superficie. Aunque sigue siendo funcional, la mente y la percepción del vampiro están distorsionadas. Durante una escena se aplica una penalización de dos dados a todas las tiradas en las que estén implicadas Destreza, Manipulación, Compostura y Astucia, así como a las tiradas para resistir el Frenesí de terror.</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="4">Saciar el Ansia</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="light-bg">
-                        <td><strong>Fuente</strong></td>
-                        <td><strong>Ansia Saciada</strong></td>
-                        <td><strong>Tiempo</strong></td>
-                        <td><strong>Notas</strong></td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td>Varios animales pequeños (tres o cuatro gatos, una docena de ratas)</td>
-                        <td>1</td>
-                        <td>Una escena</td>
-                        <td rowspan="3">No sacia el Ansia de vampiros con una Potencia de Sangre de más de 2.<br>Resonancia animal; No causa Discrasia.</td>
-                    </tr>
-                    <tr class="light-bg">
-                        <td>Animal de tamaño medio (mapache, perro, coyote)</td>
-                        <td>1</td>
-                        <td>Un turno</td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td>Animal grande (caballo)</td>
-                        <td>2</td>
-                        <td>Una escena</td>
-                    </tr>
-                    <tr class="light-bg">
-                        <td>Bolsa de sangre</td>
-                        <td>1</td>
-                        <td>Un turno</td>
-                        <td></td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td>Beber de un humano</td>
-                        <td>1</td>
-                        <td>Tres turnos</td>
-                        <td rowspan="2">Incluye lamer la herida para cerrarla</td>
-                    </tr>
-                    <tr class="light-bg">
-                        <td>Máximo bebible de un humano sin dañarlo</td>
-                        <td>2</td>
-                        <td>Una escena</td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- Main Content Grid -->
+        <main class="grid grid-cols-1 md:grid-cols-2 gap-8">
             
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="3">Frenesí</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="light-bg">
-                        <td><strong>FURIA</strong></td>
-                        <td><strong>Provocación</strong></td>
-                        <td><strong>Dificultad</strong></td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td rowspan="6">Las provocaciones causan <em>Frenesí de furia</em>; los insultos, las humillaciones o las agresiones pueden desencadenar una violencia bestial. Un vampiro en Frenesí de furia no se detiene ante nada para hacer pedazos la causa de su provocación, a menudo junto a cualquiera que haya en las cercanías, amigo o enemigo. Después de destruir al blanco de su ira, el vampiro puede hacer una tirada de Fuerza de Voluntad a dificultad 3 (o 5 si otros enemigos siguen en pie). El éxito acaba con el Frenesí, mientras un fallo hace que se sumerja más en su rabia; sigue matando a cualquiera que haya en las cercanías a menos que alguien lo contenga.</td>
-                        <td>Amigo asesinado</td>
-                        <td>2</td>
-                    </tr>
-                    <tr class="light-bg">
-                         <td>Amante o Piedra de Toque herida</td>
-                        <td>3</td>
-                    </tr>
-                     <tr class="white-bg">
-                        <td>Amante o Piedra de toque asesinada</td>
-                        <td>4</td>
-                    </tr>
-                    <tr class="light-bg">
-                        <td>Provocación o acoso físico</td>
-                        <td>2</td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td>Insultado por alguien inferior</td>
-                        <td>2</td>
-                    </tr>
-                    <tr class="light-bg">
-                        <td>Humillación pública</td>
-                        <td>2</td>
-                    </tr>
-                </tbody>
-            </table>
-            <table>
-                 <thead>
-                    <tr>
-                        <th colspan="3">Frenesí (cont)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="light-bg">
-                        <td><strong>HAMBRE</strong></td>
-                        <td><strong>Provocación</strong></td>
-                        <td><strong>Dificultad</strong></td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td rowspan="3">La tentación causa <em>Frenesí de hambre</em>; la Bestia siempre desea más sangre. Cada vez que un vampiro falle un control de Enardecimiento teniendo Ansia 5, tendrá que hacer una prueba de Frenesí de hambre. Dependiendo de la crónica, el Narrador puede ser más o menos estricto con las pruebas de Frenesí de hambre, pero siempre debería quedar alguna posibilidad. Durante un Frenesí de hambre, el vampiro busca sangre humana fresca de la fuente más cercana (si esa fuente es su Piedra de Toque, uno sólo puede esperar que el jugador aún tenga algún punto de Fuerza de Voluntad que gastar para tomar el control del vampiro y mandarlo a perseguir a un objetivo diferente). El Frenesí de hambre acaba cuando el vampiro alcanza un Ansia de 1 o inferior.</td>
-                        <td>Visión de una herida abierta u olor penetrante a sangre con Ansia &gt;=4</td>
-                        <td>2</td>
-                    </tr>
-                    <tr class="light-bg">
-                        <td>Sabor de la sangre con Ansia &gt;=4</td>
-                        <td>3</td>
-                    </tr>
-                     <tr class="white-bg">
-                        <td>Fallar un control de Enardecimiento con Ansia 5</td>
-                        <td>4</td>
-                    </tr>
-                 </tbody>
-            </table>
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="1">Tipos de Sangre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="light-bg">
-                        <td colspan="3" style="text-align:center;"><strong>Temperamento de sangre</strong></td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td><strong>Intensidad</strong></td>
-                    </tr>
-                    <tr class="light-bg">
-                        <td colspan="2">1-5: Equilibrada,<br>insignificante.</td>
-                    </tr>
-                     <tr class="white-bg">
-                        <td colspan="2">6-8: Efímero.</td>
-                    </tr>
-                     <tr class="light-bg">
-                        <td rowspan="2">9-0:<br>Vuelve a tirar.</td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+            <!-- Column 1 -->
+            <div class="flex flex-col gap-8">
+                
+                <!-- Compulsiones Generales -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden table-card">
+                    <h2 class="table-header">Compulsiones Generales</h2>
+                    <div class="p-4 overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead class="border-b">
+                                <tr class="text-left">
+                                    <th class="p-2 font-bold">Compulsión</th>
+                                    <th class="p-2 font-bold">Sociales</th>
+                                    <th class="p-2 font-bold">Violentos</th>
+                                    <th class="p-2 font-bold">Solitarios</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b bg-light">
+                                    <td class="p-2 font-bold">1-3: Ansia</td>
+                                    <td class="p-2">En vez de interrogar a los testigos mortales, el vampiro hace avanzar la situación hacia una seducción.</td>
+                                    <td class="p-2">El vampiro desecha su arma y se lanza de cabeza a un combate cuerpo a cuerpo, determinado a alimentarse.</td>
+                                    <td class="p-2">El vampiro decide que necesita tomarse un descanso y por casualidad acaba en un club nocturno lleno de sudor.</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-2 font-bold">4-5: Supremacía</td>
+                                    <td class="p-2">El vampiro convierte una conversación civilizada en un ejercicio de ponerse por delante de los demás.</td>
+                                    <td class="p-2">En vez de concentrarse en su objetivo, el vampiro hace una pausa para juguetear con un oponente mortal.</td>
+                                    <td class="p-2">El vampiro se obsesiona con la idea de alcanzar su objetivo de una forma innovadora.</td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td class="p-2 font-bold">6-7: Daño</td>
+                                    <td class="p-2">Una presentación tranquila se echa a perder cuando el vampiro comienza a acosar y a torturar psicológicamente al sujeto.</td>
+                                    <td class="p-2">En vez dejar de lado al adversario incapacitado, el vampiro empieza a atacar al oponente inconsciente.</td>
+                                    <td class="p-2">Frustrado por una pequeña molestia, el vampiro usa un bate de béisbol contra su caro equipo informático.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="1">Combate</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="light-bg">
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+                <!-- Compulsiones Generales (cont) -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden table-card">
+                    <h2 class="table-header">Compulsiones Generales (cont)</h2>
+                    <div class="p-4">
+                        <p class="mb-2"><strong class="font-bold">8-9 Paranoia:</strong> El vampiro trata a todo el mundo con sospecha e intenta escapar de todos los compromisos. Intenta poner fin o escapar del peligro por todos los medios, corriendo o suplicando por su vida. Ve amenazas donde no existe ninguna, ataca y huye, y se obsesiona con símbolos ocultistas sin importancia o con extrañas coincidencias.</p>
+                        <p class="font-bold border-t pt-2 mt-2">10: Compulsión de Clan</p>
+                    </div>
+                </div>
 
+                <!-- Compulsión de Clan -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden table-card">
+                    <h2 class="table-header">Compulsión de Clan</h2>
+                    <div class="p-4 space-y-4">
+                        <div>
+                            <h3 class="font-bold text-lg text-primary">Brujah: Rebelión</h3>
+                            <p class="text-sm">El vampiro se opone a cualquier cosa o persona que considere que representa el statu quo. Recibe una penalización de dos dados a todas las tiradas hasta que actúe en contra de sus órdenes o de lo que se espera de él.</p>
+                        </div>
+                        <div class="border-t pt-4">
+                             <h3 class="font-bold text-lg text-primary">Gangrel: Impulsos animales</h3>
+                             <p class="text-sm">Retorna a un estado animal, dificultando el habla. Penalización de tres dados a tiradas de Manipulación e Inteligencia. Sólo puede pronunciar frases de una palabra.</p>
+                        </div>
+                        <div class="border-t pt-4">
+                             <h3 class="font-bold text-lg text-primary">Malkavian: Delirio</h3>
+                             <p class="text-sm">Experimenta verdades o portentos que distorsionan su percepción. Penalización de dos dados a tiradas de Destreza, Manipulación, Compostura y Astucia, y para resistir el Frenesí de terror.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Saciar el Ansia -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden table-card">
+                    <h2 class="table-header">Saciar el Ansia</h2>
+                    <div class="p-4 overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead class="border-b">
+                                <tr class="text-left">
+                                    <th class="p-2 font-bold">Fuente</th>
+                                    <th class="p-2 font-bold">Ansia Saciada</th>
+                                    <th class="p-2 font-bold">Notas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b bg-light"><td class="p-2">Varios animales pequeños</td><td class="p-2">1</td><td class="p-2" rowspan="3">No sacia Ansia > PB 2. Resonancia animal.</td></tr>
+                                <tr class="border-b"><td class="p-2">Animal de tamaño medio</td><td class="p-2">1</td></tr>
+                                <tr class="border-b bg-light"><td class="p-2">Animal grande</td><td class="p-2">2</td></tr>
+                                <tr class="border-b"><td class="p-2">Bolsa de sangre</td><td class="p-2">1</td><td class="p-2"></td></tr>
+                                <tr class="border-b bg-light"><td class="p-2">Beber de un humano</td><td class="p-2">1</td><td class="p-2" rowspan="2">Incluye lamer la herida.</td></tr>
+                                <tr><td class="p-2">Máximo bebible sin dañar</td><td class="p-2">2</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-        </div>
+            </div> <!-- End Column 1 -->
 
-        <div class="column">
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="3">Compulsión de Clan (cont)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="light-bg">
-                        <td><strong>Toreador: Obsesión</strong></td>
-                        <td><strong>Tremere: Perfeccionismo</strong></td>
-                        <td><strong>Ventrue: Arrogancia</strong></td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td>El vampiro, embelesado por la belleza, se obsesiona <span class="seqsplit">temporalmente</span> con algo espléndido en concreto y es incapaz de pensar en otra cosa. Elige un elemento, como una persona, una canción, una obra de arte, una mancha de sangre o incluso un amanecer. El vampiro, fascinado, apenas puede apartar su atención del mismo y si se le dirige la palabra, sólo habla sobre ese tema. Se aplica una <span class="seqsplit">penalización</span> de dos dados a cualesquiera otras acciones. Esta Compulsión dura hasta que ya no pueda percibir el objeto admirado o acabe la escena.</td>
-                        <td>Sólo lo mejor satisface al vampiro. Todo lo que no sea un desempeño excepcional induce una profunda sensación de fracaso y a menudo repite tareas <span class="seqsplit">obsesivamente</span> para que el resultado sea <span class="seqsplit">"mínimamente</span> correcto". El vampiro actúa con una <span class="seqsplit">penalización</span> de dos dados a todas las reservas hasta que obtenga una victoria crítica en una tirada de Habilidad o la escena acabe. Reduce la <span class="seqsplit">penalización</span> a un dado en el caso de una acción repetida y elimínala en la segunda repetición.</td>
-                        <td>La necesidad de mandar del vampiro aflora. Está dispuesto a todo para asumir el mando en una situación. Alguien debe obedecer una orden del vampiro. A cualquier acción que no esté relacionada con el liderazgo se le aplica una <span class="seqsplit">penalización</span> de dos dados. Esta Compulsión dura hasta que una orden haya sido obedecida, aunque la misma no puede reforzarse sobre naturalmente, por ejemplo con Dominación.</td>
-                    </tr>
-                </tbody>
-            </table>
+            <!-- Column 2 -->
+            <div class="flex flex-col gap-8">
 
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="4">Saciar el Ansia (cont)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="light-bg">
-                        <td>Beber de un humano hasta dañarlo, corre riesgo de morir sin tratamiento</td>
-                        <td>1-4</td>
-                        <td>Un turno por punto saciado</td>
-                        <td>El Ansia saciada equivale a daño agravado; para sobrevivir a la pérdida de sangre, el humano tira Fuerza + Resistencia contra una dificultad igual al Ansia saciada.</td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td>Humano vaciado y muerto</td>
-                        <td>5</td>
-                        <td>Cinco turnos</td>
-                        <td>Única manera de alcanzar Ansia 0</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-             <table>
-                <thead>
-                    <tr>
-                        <th colspan="1">Potencia de sangre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="light-bg"><td><strong>Potencia de sangre</strong></td></tr>
-                    <tr class="white-bg"><td>0</td></tr>
-                    <tr class="light-bg"><td>1</td></tr>
-                    <tr class="white-bg"><td>2</td></tr>
-                    <tr class="light-bg"><td>3</td></tr>
-                </tbody>
-            </table>
-            
-            <table>
-                 <thead>
-                    <tr>
-                        <th colspan="3">Frenesí (cont)</th>
-                    </tr>
-                </thead>
-                 <tbody>
-                    <tr class="light-bg">
-                        <td><strong>TERROR</strong></td>
-                        <td><strong>Provocación</strong></td>
-                        <td><strong>Dificultad</strong></td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td rowspan="4">El peligro causa <em>Frenesí de terror</em>; la Bestia debe preservarse a sí misma contra todas las amenazas. El Frenesí de terror, también conocido como Rötschreck, se manifiesta cuando el vampiro se enfrenta a una amenaza como la luz solar o las llamas desnudas. Un daño grave al cuerpo del vampiro también puede inducir esta respuesta. Mientras está en Frenesí de terror, el vampiro huye de la fuente de peligro sin consideración por nadie ni por nada en su camino. El Frenesí de terror acaba cuando el vampiro ya no puede percibir ningún peligro o cuando acaba la escena.</td>
-                        <td>Hoguera</td>
-                        <td>2</td>
-                    </tr>
-                    <tr class="light-bg">
-                         <td>En el interior de un edificio en llamas</td>
-                        <td>3</td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td>Recibir una quemadura</td>
-                        <td>2</td>
-                    </tr>
-                    <tr class="light-bg">
-                        <td>Luz solar velada</td>
-                        <td>3</td>
-                    </tr>
-                     <tr class="white-bg">
-                        <td>Completamente expuesto a luz solar</td>
-                        <td>4</td>
-                    </tr>
-                    <tr class="light-bg">
-                        <td colspan="3"><strong>Cabalgar la ola</strong><br>Un vampiro también puede elegir cabalgar la ola y caer intencionadamente en el Frenesí sin hacer ninguna prueba. Este acto sigue las reglas habituales del Frenesí, aunque el Narrador debería permitir al jugador interpretar el Frenesí por sí mismo, como por ejemplo escogiendo de quién se alimenta primero, en vez de tomar el control completo del personaje. Si un vampiro en Frenesí no cabalga la ola, se convierte en propiedad del Narrador mientras dure éste</td>
-                    </tr>
-                </tbody>
-            </table>
+                 <!-- Compulsión de Clan (cont) -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden table-card">
+                    <h2 class="table-header">Compulsión de Clan (cont)</h2>
+                    <div class="p-4 space-y-4">
+                        <div>
+                            <h3 class="font-bold text-lg text-primary">Toreador: Obsesión</h3>
+                            <p class="text-sm">Se obsesiona con algo espléndido (persona, arte, etc.) y no puede pensar en otra cosa. Penalización de dos dados a otras acciones hasta que el objeto desaparece o acaba la escena.</p>
+                        </div>
+                        <div class="border-t pt-4">
+                             <h3 class="font-bold text-lg text-primary">Tremere: Perfeccionismo</h3>
+                             <p class="text-sm">Solo lo mejor le satisface. Penalización de dos dados a todas las reservas hasta obtener una victoria crítica. La penalización se reduce con acciones repetidas.</p>
+                        </div>
+                        <div class="border-t pt-4">
+                             <h3 class="font-bold text-lg text-primary">Ventrue: Arrogancia</h3>
+                             <p class="text-sm">Necesita asumir el mando. Penalización de dos dados a cualquier acción no relacionada con el liderazgo hasta que alguien obedezca una de sus órdenes.</p>
+                        </div>
+                    </div>
+                </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="1">Humanidad</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="light-bg"><td><strong>Humanidad</strong></td></tr>
-                    <tr class="white-bg"><td>10</td></tr>
-                    <tr class="light-bg"><td>9</td></tr>
-                    <tr class="white-bg"><td>8</td></tr>
-                    <tr class="light-bg"><td>7</td></tr>
-                    <tr class="white-bg"><td>6</td></tr>
-                    <tr class="light-bg"><td>5</td></tr>
-                    <tr class="white-bg"><td>4</td></tr>
-                    <tr class="light-bg"><td>3</td></tr>
-                    <tr class="white-bg"><td>2</td></tr>
-                    <tr class="light-bg"><td>1</td></tr>
-                    <tr class="white-bg"><td>0</td></tr>
-                </tbody>
-            </table>
-            
-             <table>
-                <thead>
-                    <tr>
-                        <th colspan="4">Peligros</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="light-bg">
-                        <td><strong>Luz solar</strong></td>
-                        <td><strong>Fuego</strong></td>
-                        <td><strong>Frío extremo</strong></td>
-                        <td><strong>Decapitación</strong></td>
-                    </tr>
-                    <tr class="white-bg">
-                        <td><strong>Estacas</strong></td>
-                        <td><strong>Fe verdadera</strong></td>
-                        <td><strong>Letargo</strong></td>
-                        <td><strong>Muerte definitiva</strong></td>
-                    </tr>
-                </tbody>
-            </table>
+                <!-- Saciar el Ansia (cont) -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden table-card">
+                    <h2 class="table-header">Saciar el Ansia (cont)</h2>
+                    <div class="p-4 overflow-x-auto">
+                         <table class="w-full text-sm">
+                            <thead class="border-b">
+                                <tr class="text-left">
+                                    <th class="p-2 font-bold">Fuente</th>
+                                    <th class="p-2 font-bold">Ansia Saciada</th>
+                                    <th class="p-2 font-bold">Notas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b bg-light">
+                                    <td class="p-2">Beber hasta dañar</td>
+                                    <td class="p-2">1-4</td>
+                                    <td class="p-2">Daño agravado. El humano tira para sobrevivir.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2">Humano vaciado y muerto</td>
+                                    <td class="p-2">5</td>
+                                    <td class="p-2">Única manera de alcanzar Ansia 0.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Frenesí -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden table-card">
+                    <h2 class="table-header">Frenesí</h2>
+                    <div class="p-4 space-y-4">
+                        <div>
+                            <h3 class="font-bold text-lg text-primary">FURIA</h3>
+                            <p class="text-sm mb-2">Causado por insultos, humillaciones o agresiones. El vampiro ataca sin control a la causa. Termina al destruir el objetivo y superar una tirada de Fuerza de Voluntad.</p>
+                            <ul class="list-disc list-inside text-sm">
+                                <li>Amigo asesinado: Dificultad 2</li>
+                                <li>Amante herido: Dificultad 3</li>
+                                <li>Amante asesinado: Dificultad 4</li>
+                                <li>Provocación física: Dificultad 2</li>
+                                <li>Humillación pública: Dificultad 2</li>
+                            </ul>
+                        </div>
+                        <div class="border-t pt-4">
+                             <h3 class="font-bold text-lg text-primary">HAMBRE</h3>
+                             <p class="text-sm mb-2">Causado por la tentación de la sangre. El vampiro busca alimentarse de la fuente más cercana. Termina cuando el Ansia es 1 o inferior.</p>
+                             <ul class="list-disc list-inside text-sm">
+                                <li>Olor a sangre (Ansia ≥4): Dificultad 2</li>
+                                <li>Sabor de la sangre (Ansia ≥4): Dificultad 3</li>
+                                <li>Fallar control de Enardecimiento (Ansia 5): Dificultad 4</li>
+                             </ul>
+                        </div>
+                         <div class="border-t pt-4">
+                             <h3 class="font-bold text-lg text-primary">TERROR (Rötschreck)</h3>
+                             <p class="text-sm mb-2">Causado por el peligro (fuego, luz solar). El vampiro huye sin control. Termina cuando el peligro desaparece.</p>
+                             <ul class="list-disc list-inside text-sm">
+                                <li>Hoguera: Dificultad 2</li>
+                                <li>Edificio en llamas: Dificultad 3</li>
+                                <li>Recibir una quemadura: Dificultad 2</li>
+                                <li>Luz solar velada: Dificultad 3</li>
+                                <li>Exposición total a luz solar: Dificultad 4</li>
+                             </ul>
+                        </div>
+                        <div class="border-t pt-4 bg-light -m-4 p-4">
+                             <h3 class="font-bold text-lg">Cabalgar la ola</h3>
+                             <p class="text-sm">Se puede elegir caer intencionadamente en Frenesí. El jugador mantiene cierto control sobre las acciones del personaje.</p>
+                        </div>
+                    </div>
+                </div>
 
-        </div>
-    </main>
+                <!-- Peligros -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden table-card">
+                    <h2 class="table-header">Peligros</h2>
+                    <div class="p-4">
+                        <ul class="grid grid-cols-2 gap-2 text-center text-sm">
+                            <li class="bg-gray-100 p-2 rounded">Luz solar</li>
+                            <li class="bg-gray-100 p-2 rounded">Fuego</li>
+                            <li class="bg-gray-100 p-2 rounded">Frío extremo</li>
+                            <li class="bg-gray-100 p-2 rounded">Decapitación</li>
+                            <li class="bg-gray-100 p-2 rounded">Estacas</li>
+                            <li class="bg-gray-100 p-2 rounded">Fe verdadera</li>
+                            <li class="bg-gray-100 p-2 rounded">Letargo</li>
+                            <li class="bg-gray-100 p-2 rounded">Muerte definitiva</li>
+                        </ul>
+                    </div>
+                </div>
 
-    <footer>
-        <div class="footer-col">
-            <h3>Cheatographer</h3>
-            <p class="info">
-                enbeetreee<br>
-                <u>cheatography.com/enbeetreee</u>
-            </p>
-        </div>
-        <div class="footer-col">
-            <h3>Cheat Sheet</h3>
-            <p class="info">
-                Not Yet Published.<br>
-                Updated 3rd May, 2025.<br>
-                Page 1 of 1.
-            </p>
-        </div>
-        <div class="footer-col">
-            <h3>Sponsor</h3>
-            <p>
-                Measure your website readability!<br>
-                www.readability-score.com
-            </p>
-        </div>
-    </footer>
+            </div> <!-- End Column 2 -->
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-12 pt-6 border-t text-white">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-sm">
+                <div class="bg-footer p-4 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Cheatographer</h3>
+                    <p>enbeetreee</p>
+                    <a href="https://cheatography.com/enbeetreee" class="underline hover:text-gray-300">cheatography.com/enbeetreee</a>
+                </div>
+                <div class="bg-footer p-4 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Cheat Sheet</h3>
+                    <p>No publicado aún.</p>
+                    <p>Actualizado el 3 de Mayo, 2025.</p>
+                    <p>Página 1 de 1.</p>
+                </div>
+                <div class="bg-footer p-4 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Sponsor</h3>
+                    <p>¡Mide la legibilidad de tu sitio web!</p>
+                    <a href="https://www.readability-score.com" class="underline hover:text-gray-300">www.readability-score.com</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
 
 </body>
 </html>
