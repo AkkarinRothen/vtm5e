@@ -12,22 +12,22 @@
 </head>
 <body class="text-gray-300">
 
-    <div class="container mx-auto p-4 md:p-6 lg:p-8">
+    <div class="container mx-auto max-w-7xl p-4 md:p-6 lg:p-8">
         <header class="text-center mb-4">
             <h1 class="text-4xl md:text-6xl font-bold text-red-600">Guía del Vástago</h1>
             <p class="text-gray-400 mt-2 text-lg">Vampiro: La Mascarada 5ª Edición</p>
         </header>
         <div class="flex justify-center gap-4 mb-4">
-            <img src="https://drawdistance.dev/wp-content/uploads/2020/01/Wallpaper_12-1920x1080-1.jpg" alt="Ankh de Vampiro" class="w-1400 h-700 rounded shadow-md">
+            <img src="https://drawdistance.dev/wp-content/uploads/2020/01/Wallpaper_12-1920x1080-1.jpg" alt="Ankh de Vampiro" class="w-full max-w-4xl h-auto rounded shadow-md">
            
         </div>
         <p class="text-center text-gray-400 text-sm italic mb-4">Las portadas mostradas arriba son ejemplos para ilustración y pertenecen a sus respectivos propietarios.</p>
 
-        <nav class="mb-8 flex justify-center bg-black bg-opacity-20 border-y border-gray-800">
+        <nav class="mb-8 flex flex-col sm:flex-row justify-center items-stretch bg-black bg-opacity-20 border-y border-gray-800 sticky top-0 z-20">
             <button id="nav-disciplines" class="nav-link active flex-1 p-3 text-lg font-bold text-gray-300 hover:bg-red-900/50 transition-colors">Disciplinas</button>
-            <button id="nav-char-creation" class="nav-link flex-1 p-3 text-lg font-bold text-gray-300 hover:bg-red-900/50 transition-colors border-l border-gray-800">Creación de Personaje</button>
-            <button id="nav-clan-lore" class="nav-link flex-1 p-3 text-lg font-bold text-gray-300 hover:bg-red-900/50 transition-colors border-l border-gray-800">Lore de Clanes</button>
-            <a href="public/vtm-v5-espanol.html" target="_blank" class="flex-1 p-3 text-lg font-bold text-gray-300 hover:bg-red-900/50 transition-colors border-l border-gray-800 text-center">Cheat&nbsp;Sheet</a>
+            <button id="nav-char-creation" class="nav-link flex-1 p-3 text-lg font-bold text-gray-300 hover:bg-red-900/50 transition-colors sm:border-l border-gray-800">Creación de Personaje</button>
+            <button id="nav-clan-lore" class="nav-link flex-1 p-3 text-lg font-bold text-gray-300 hover:bg-red-900/50 transition-colors sm:border-l border-gray-800">Lore de Clanes</button>
+            <a href="public/vtm-v5-espanol.html" target="_blank" class="flex-1 p-3 text-lg font-bold text-gray-300 hover:bg-red-900/50 transition-colors sm:border-l border-gray-800 text-center">Cheat&nbsp;Sheet</a>
         </nav>
 
         <div id="disciplines-view" class="content-section active">
