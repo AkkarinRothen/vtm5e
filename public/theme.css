@@ -38,3 +38,16 @@ h1, h2, h3, h4 {
 .content-section.active {
   display: block;
 }
+
+.clan-btn.active {
+  background-color: var(--vtm-red);
+  color: #F3F4F6;
+}
+
+.clan-content {
+  display: none;
+}
+
+.clan-content.active {
+  display: block;
+}

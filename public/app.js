@@ -209,4 +209,33 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(r => r.json())
         .then(data => { disciplines = data; initialize(); })
         .catch(err => console.error('Failed to load disciplines:', err));
+    setupClanButtons();
 });
+
+function setupClanButtons() {
+    const buttons = document.querySelectorAll('.clan-btn');
+    const sections = document.querySelectorAll('.clan-content');
+    const title = document.getElementById('clan-lore-title');
+
+    function activate(targetId) {
+        buttons.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.target === targetId);
+        });
+        sections.forEach(sec => {
+            sec.classList.toggle('active', sec.id === targetId);
+        });
+
+        const activeBtn = Array.from(buttons).find(b => b.dataset.target === targetId);
+        if (title && activeBtn) {
+            title.textContent = `Lore de los Clanes: ${activeBtn.textContent}`;
+        }
+    }
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => activate(btn.dataset.target));
+    });
+
+    if (buttons.length > 0) {
+        activate(buttons[0].dataset.target);
+    }
+}
