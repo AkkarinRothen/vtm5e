@@ -50,18 +50,14 @@
         p {
             margin-bottom: 1rem;
         }
-        ul {
-            list-style-type: disc;
+        ul, ol {
             margin-left: 1.5rem;
             margin-bottom: 1rem;
         }
-        ol {
-            list-style-type: decimal;
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
+        ul { list-style-type: disc; }
+        ol { list-style-type: decimal; }
         a {
-            color: #63b3ed; /* Link color */
+            color: #63b3ed;
             text-decoration: none;
         }
         a:hover {
@@ -88,137 +84,133 @@
         </header>
 
         <section id="introduccion" class="mb-8">
-            <h2 class="text-indigo-300">Introducción</h2>
+            <h2>Introducción</h2>
             <p>Este artículo es una guía completa para la creación de personajes en el juego de rol <strong>Vampiro: La Mascarada (VTM)</strong>. Abarca todos los aspectos necesarios para construir un personaje jugable, desde su concepto inicial hasta sus habilidades y trasfondo.</p>
         </section>
 
         <section id="informacion-basica" class="mb-8">
-            <h2 class="text-indigo-300">Información Básica del Personaje</h2>
-            <p>Aquí se definen los elementos fundamentales que dan forma a la identidad de tu personaje:</p>
-            <ul class="list-disc ml-6">
+            <h2>Información Básica del Personaje</h2>
+            <ul>
                 <li><strong>Nombre:</strong> La identidad de tu personaje.</li>
-                <li><strong>Concepto:</strong> Una breve descripción de quién era tu personaje antes del Abrazo y qué tipo de persona es ahora.</li>
-                <li><strong>Tipo de Depredador:</strong> Cómo obtiene sangre tu personaje.</li>
-                <li><strong>Crónica:</strong> El nombre de la historia o campaña en la que participará tu personaje.</li>
-                <li><strong>Ambición:</strong> El objetivo a largo plazo de tu personaje.</li>
-                <li><strong>Clan:</strong> La línea de sangre vampírica a la que pertenece tu personaje.</li>
-                <li><strong>Sire:</strong> El vampiro que Abrazó a tu personaje.</li>
-                <li><strong>Deseo:</strong> Un objetivo a corto plazo o una necesidad inmediata de tu personaje.</li>
-                <li><strong>Generación:</strong> Cuán lejos está tu personaje de Caín.</li>
+                <li><strong>Concepto:</strong> Breve descripción de quién era antes y quién es tras el Abrazo.</li>
+                <li><strong>Tipo de Depredador:</strong> Manera de obtener sangre.</li>
+                <li><strong>Crónica:</strong> Nombre de la campaña.</li>
+                <li><strong>Ambición:</strong> Objetivo a largo plazo.</li>
+                <li><strong>Clan:</strong> Línea de sangre vampírica.</li>
+                <li><strong>Sire:</strong> Vampiro que abrazó a tu personaje.</li>
+                <li><strong>Deseo:</strong> Meta inmediata.</li>
+                <li><strong>Generación:</strong> Cercanía a Caín.</li>
             </ul>
         </section>
 
         <section id="clanes" class="mb-8">
-            <h2 class="text-indigo-300">Clanes</h2>
-            <p>Cada clan vampírico tiene sus propias características, Disciplinas y maldiciones. Elegir un clan es una de las decisiones más importantes en la creación de personajes.</p>
+            <h2>Clanes</h2>
+            <p>Cada clan tiene sus propias características, Disciplinas y maldiciones. Elegir uno es clave.</p>
             <div class="note">
-                <p>Para más detalles sobre los clanes, consulta la sección de <a href="#">Clanes</a> en la VTM Wiki.</p>
+                <p>Para más detalles, visita la sección de <a href="#">Clanes</a> en la VTM Wiki.</p>
             </div>
         </section>
 
         <section id="mar-del-tiempo" class="mb-8">
-            <h2 class="text-indigo-300">Mar del Tiempo (Edad, Abrazo, Generación, Potencia de Sangre)</h2>
-            <p>Esta sección profundiza en la historia no-muerta de tu personaje:</p>
-            <ul class="list-disc ml-6">
-                <li><strong>Edad:</strong> La edad de tu personaje en el momento del Abrazo.</li>
-                <li><strong>Abrazado:</strong> La fecha o el período en que tu personaje fue transformado en vampiro.</li>
-                <li><strong>Generación:</strong> Como se mencionó anteriormente, su cercanía a Caín.</li>
-                <li><strong>Potencia de Sangre:</strong> Representa la fuerza de la sangre de tu personaje, afectando sus Disciplinas y la dificultad de ciertas acciones.</li>
+            <h2>Mar del Tiempo</h2>
+            <ul>
+                <li><strong>Edad:</strong> Edad al Abrazo.</li>
+                <li><strong>Abrazado:</strong> Fecha o período del Abrazo.</li>
+                <li><strong>Generación:</strong> Cercanía a Caín.</li>
+                <li><strong>Potencia de Sangre:</strong> Fuerza de la sangre.</li>
             </ul>
         </section>
 
         <section id="atributos" class="mb-8">
-            <h2 class="text-indigo-300">Atributos (Físicos, Sociales, Mentales)</h2>
-            <p>Los atributos representan las capacidades innatas de tu personaje y se dividen en tres categorías:</p>
-            <ul class="list-disc ml-6">
+            <h2>Atributos</h2>
+            <ul>
                 <li><strong>Físicos:</strong> Fuerza, Destreza, Resistencia.</li>
                 <li><strong>Sociales:</strong> Carisma, Manipulación, Apariencia.</li>
                 <li><strong>Mentales:</strong> Inteligencia, Astucia, Resolución.</li>
             </ul>
-            <p>Se distribuyen puntos entre estos atributos para reflejar las fortalezas y debilidades de tu personaje.</p>
         </section>
 
         <section id="habilidades" class="mb-8">
-            <h2 class="text-indigo-300">Habilidades (Físicas, Sociales, Mentales)</h2>
+            <h2>Habilidades</h2>
             <p>Las Habilidades describen la destreza, experiencia e intelecto de tu personaje. Se combinan con los Atributos para formar las reservas de dados en las tiradas.</p>
 
-            <h3 class="mt-4 text-red-400">Habilidades Físicas</h3>
-            <ul class="list-disc ml-6 space-y-1">
+            <h3>Habilidades Físicas</h3>
+            <ul class="space-y-1">
                 <li><strong>Armas C. a C.:</strong> Dominio del combate con armas blancas o improvisadas.</li>
                 <li><strong>Armas de Fuego:</strong> Pericia con pistolas, rifles y otras armas de proyectiles.</li>
                 <li><strong>Atletismo:</strong> Resistencia física general: correr, saltar o escalar.</li>
-                <li><strong>Conducir:</strong> Habilidad para maniobrar vehículos de forma segura y eficaz.</li>
+                <li><strong>Conducir:</strong> Maniobrar vehículos de forma segura y eficaz.</li>
                 <li><strong>Hurto:</strong> Destreza para robar o forzar cerraduras sin ser visto.</li>
                 <li><strong>Oficio:</strong> Conocimientos manuales como carpintería, mecánica o electrónica.</li>
                 <li><strong>Pelea:</strong> Competencia en combate desarmado.</li>
-                <li><strong>Sigilo:</strong> Capacidad de moverse o esconderse sin ser detectado.</li>
+                <li><strong>Sigilo:</strong> Moverse u ocultarse sin ser detectado.</li>
                 <li><strong>Supervivencia:</strong> Ingenio para subsistir y orientarse en entornos hostiles.</li>
             </ul>
 
-            <h3 class="mt-6 text-red-400">Habilidades Sociales</h3>
-            <ul class="list-disc ml-6 space-y-1">
+            <h3>Habilidades Sociales</h3>
+            <ul class="space-y-1">
                 <li><strong>Callejeo:</strong> Conocimiento del bajo mundo y sus contactos.</li>
-                <li><strong>Etiqueta:</strong> Manejo de las normas sociales y la cortesía.</li>
-                <li><strong>Interpretación:</strong> Capacidad para actuar o adoptar distintos papeles.</li>
-                <li><strong>Intimidación:</strong> Arte de infundir temor o respeto.</li>
-                <li><strong>Liderazgo:</strong> Talento para inspirar y dirigir a otros.</li>
-                <li><strong>Perspicacia:</strong> Habilidad para leer emociones e intenciones ajenas.</li>
-                <li><strong>Persuasión:</strong> Convencer mediante la lógica o el carisma.</li>
-                <li><strong>Subterfugio:</strong> Maestría en la mentira y el engaño.</li>
+                <li><strong>Etiqueta:</strong> Manejo de normas sociales y cortesía.</li>
+                <li><strong>Interpretación:</strong> Actuar o adoptar papeles.</li>
+                <li><strong>Intimidación:</strong> Infundir temor o respeto.</li>
+                <li><strong>Liderazgo:</strong> Inspirar y dirigir a otros.</li>
+                <li><strong>Perspicacia:</strong> Leer emociones e intenciones ajenas.</li>
+                <li><strong>Persuasión:</strong> Convencer con lógica o carisma.</li>
+                <li><strong>Subterfugio:</strong> Maestría en mentira y engaño.</li>
                 <li><strong>Trato con Animales:</strong> Comprensión y manejo de animales.</li>
             </ul>
 
-            <h3 class="mt-6 text-red-400">Habilidades Mentales</h3>
-            <ul class="list-disc ml-6 space-y-1">
-                <li><strong>Academicismo:</strong> Estudios formales como historia o literatura.</li>
-                <li><strong>Alerta:</strong> Atención a detalles y peligros ocultos.</li>
-                <li><strong>Finanzas:</strong> Conocimiento del mundo económico y las inversiones.</li>
+            <h3>Habilidades Mentales</h3>
+            <ul class="space-y-1">
+                <li><strong>Academicismo:</strong> Estudios formales (historia, literatura).</li>
+                <li><strong>Alerta:</strong> Atención a detalles y peligros.</li>
+                <li><strong>Finanzas:</strong> Conocimiento económico y de inversiones.</li>
                 <li><strong>Investigación:</strong> Búsqueda y análisis de información.</li>
-                <li><strong>Medicina:</strong> Experiencia en anatomía y tratamiento de heridas.</li>
-                <li><strong>Ocultismo:</strong> Saber sobre lo sobrenatural y rituales esotéricos.</li>
-                <li><strong>Política:</strong> Comprensión de intrigas y jerarquías de poder.</li>
-                <li><strong>Ciencia:</strong> Conocimientos en campos científicos especializados.</li>
-                <li><strong>Tecnología:</strong> Manejo y manipulación de dispositivos modernos.</li>
+                <li><strong>Medicina:</strong> Anatomía y tratamiento de heridas.</li>
+                <li><strong>Ocultismo:</strong> Saber sobre lo sobrenatural y rituales.</li>
+                <li><strong>Política:</strong> Intrigas y jerarquías de poder.</li>
+                <li><strong>Ciencia:</strong> Conocimientos en campos científicos.</li>
+                <li><strong>Tecnología:</strong> Manejo de dispositivos modernos.</li>
             </ul>
         </section>
 
         <section id="disciplinas" class="mb-8">
-            <h2 class="text-indigo-300">Disciplinas</h2>
-            <p>Las Disciplinas son los poderes sobrenaturales que los vampiros obtienen de su sangre. Cada clan tiene un conjunto de Disciplinas inherentes.</p>
+            <h2>Disciplinas</h2>
             <div class="note">
-                <p>Para una lista completa y descripciones de las Disciplinas, visita la página de <a href="#">Disciplinas</a> en la VTM Wiki.</p>
+                <p>Para una lista completa, visita <a href="#">Disciplinas</a> en la VTM Wiki.</p>
             </div>
         </section>
 
         <section id="principios-de-la-cronica" class="mb-8">
-            <h2 class="text-indigo-300">Principios de la Crónica</h2>
-            <p>Estos son los principios morales y éticos que rigen la crónica. Tu personaje y los demás jugadores deben adherirse a ellos para mantener la coherencia temática y narrativa del juego.</p>
+            <h2>Principios de la Crónica</h2>
+            <p>Principios morales y éticos que rigen la crónica.</p>
         </section>
 
         <section id="puntos-de-apoyo-y-convicciones" class="mb-8">
-            <h2 class="text-indigo-300">Puntos de Apoyo y Convicciones</h2>
-            <p>Los puntos de apoyo son personas, lugares o cosas mortales que tu personaje valora y que lo anclan a su humanidad. Las convicciones son las creencias fundamentales que tu personaje tiene y que lo ayudan a mantener su humanidad frente a la Bestia.</p>
+            <h2>Puntos de Apoyo y Convicciones</h2>
+            <p>Personas/place o convicciones que anclan a tu humanidad.</p>
         </section>
 
         <section id="ventajas-y-defectos" class="mb-8">
-            <h2 class="text-indigo-300">Ventajas y Defectos (Méritos y Defectos, Hojas de Saber, Creación de Coterie)</h2>
-            <p>Esta sección permite personalizar aún más a tu personaje:</p>
-            <ul class="list-disc ml-6">
-                <li><strong>Méritos y Defectos:</strong> Rasgos opcionales que otorgan ventajas o desventajas a tu personaje.</li>
-                <li><strong>Hojas de Saber (Loresheets):</strong> Proporcionan conexiones con el trasfondo del mundo de la Mascarada y otorgan beneficios únicos.</li>
-                <li><strong>Creación de Coterie:</strong> Define el grupo de vampiros al que pertenece tu personaje y los recursos compartidos.</li>
+            <h2>Ventajas y Defectos</h2>
+            <ul>
+                <li><strong>Méritos y Defectos:</strong> Rasgos opcionales.</li>
+                <li><strong>Hojas de Saber:</strong> Conexiones con el trasfondo.</li>
+                <li><strong>Creación de Coterie:</strong> Grupo de vampiros y recursos.</li>
             </ul>
             <div class="note">
-                <p>Para una lista detallada de Méritos y Defectos, consulta la página correspondiente en la VTM Wiki.</p>
+                <p>Para más detalles, visita <a href="#">Méritos y Defectos</a> en la VTM Wiki.</p>
             </div>
         </section>
 
         <section id="potencia-de-sangre" class="mb-8">
-            <h2 class="text-indigo-300">Potencia de Sangre</h2>
-            <p>La Potencia de Sangre es un rasgo crucial que afecta directamente las capacidades de tu personaje vampírico, incluyendo la efectividad de sus Disciplinas, la cantidad de sangre que puede almacenar y la dificultad de ciertas acciones.</p>
+            <h2>Potencia de Sangre</h2>
+            <p>Rasgo que afecta la efectividad de tus Disciplinas y acciones.</p>
         </section>
 
-        <p class="text-sm text-gray-400 mt-8">Contenido adaptado de la <a href="https://vtm.paradoxwikis.com" class="hover:underline">VTM Wiki</a>.</p>
+        <p class="text-sm text-gray-400 mt-8">
+            Contenido adaptado de la <a href="https://vtm.paradoxwikis.com" target="_blank" rel="noopener noreferrer">VTM Wiki</a>.
+        </p>
     </div>
 </body>
 </html>
