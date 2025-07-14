@@ -13,10 +13,10 @@ npm test
 
 ## Servidor estático
 
-Si prefieres servir los archivos mediante un servidor local, ejecuta:
+Inicia un servidor local con:
 
 ```bash
-npx http-server # o npx serve
+npm start
 ```
 
 `index.html` está en la raíz del proyecto, por lo que al abrir `http://localhost:<puerto>` podrás ver la aplicación.
