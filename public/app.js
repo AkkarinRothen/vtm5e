@@ -1,94 +1,87 @@
 // Application logic moved from index.html
 
-const navContainer = document.getElementById('discipline-list');
-const contentContainer = document.getElementById('discipline-content');
-const searchBar = document.getElementById('search-bar');
-const clanFilter = document.getElementById('clan-filter');
-const backToTopButton = document.getElementById('back-to-top');
+const navContainer       = document.getElementById('discipline-list');
+const contentContainer   = document.getElementById('discipline-content');
+const searchBar          = document.getElementById('search-bar');
+const clanFilter         = document.getElementById('clan-filter');
+const backToTopButton    = document.getElementById('back-to-top');
 
-const disciplinesView = document.getElementById('disciplines-view');
-const charCreationView = document.getElementById('character-creation-view');
-const clanLoreView = document.getElementById('clan-lore-view');
-const navDisciplines = document.getElementById('nav-disciplines');
-const navCharCreation = document.getElementById('nav-char-creation');
-const navClanLore = document.getElementById('nav-clan-lore');
+const disciplinesView    = document.getElementById('disciplines-view');
+const charCreationView   = document.getElementById('character-creation-view');
+const clanLoreView       = document.getElementById('clan-lore-view');
+const navDisciplines     = document.getElementById('nav-disciplines');
+const navCharCreation    = document.getElementById('nav-char-creation');
+const navClanLore        = document.getElementById('nav-clan-lore');
 let disciplines = {};
-
 let currentDiscipline = null;
 
 function switchView(viewName) {
-    if (viewName === 'disciplines') {
-        disciplinesView.classList.add('active');
-        charCreationView.classList.remove('active');
-        clanLoreView.classList.remove('active');
-        navDisciplines.classList.add('active');
-        navCharCreation.classList.remove('active');
-        navClanLore.classList.remove('active');
-    } else if (viewName === 'char-creation') {
-        disciplinesView.classList.remove('active');
-        charCreationView.classList.add('active');
-        clanLoreView.classList.remove('active');
-        navDisciplines.classList.remove('active');
-        navCharCreation.classList.add('active');
-        navClanLore.classList.remove('active');
-    } else if (viewName === 'clan-lore') {
-        disciplinesView.classList.remove('active');
-        charCreationView.classList.remove('active');
-        clanLoreView.classList.add('active');
-        navDisciplines.classList.remove('active');
-        navCharCreation.classList.remove('active');
-        navClanLore.classList.add('active');
-    }
+    disciplinesView.classList.toggle('active', viewName === 'disciplines');
+    charCreationView.classList.toggle('active', viewName === 'char-creation');
+    clanLoreView.classList.toggle('active', viewName === 'clan-lore');
+
+    navDisciplines.classList.toggle('active', viewName === 'disciplines');
+    navCharCreation.classList.toggle('active', viewName === 'char-creation');
+    navClanLore.classList.toggle('active', viewName === 'clan-lore');
 }
 
-function renderDiscipline(disciplineName) {
-    const data = disciplines[disciplineName];
+function renderDiscipline(disciplineKey) {
+    const data = disciplines[disciplineKey];
     if (!data) {
-        contentContainer.innerHTML = `<div class="text-center text-gray-500 bg-black bg-opacity-20 p-10 rounded-lg border border-gray-800"><p>Disciplina no encontrada.</p></div>`;
+        contentContainer.innerHTML = `
+            <div class="text-center text-gray-500 bg-black bg-opacity-20 p-10 rounded-lg border border-gray-800">
+                <p>Disciplina no encontrada.</p>
+            </div>`;
         return;
     }
 
-    currentDiscipline = disciplineName;
+    currentDiscipline = disciplineKey;
     updateActiveButton();
 
     let powersHtml = '';
-    for (let i = 1; i <= 5; i++) {
-        const levelPowers = data.powers.filter(p => p.level === i);
-        if (levelPowers.length > 0) {
-            powersHtml += `<h3 class="text-3xl font-bold mt-8 mb-4 text-red-500 border-b border-red-800 pb-2">Nivel ${i}</h3>`;
-            levelPowers.forEach(power => {
+    for (let level = 1; level <= 5; level++) {
+        const levelPowers = data.powers.filter(p => p.level === level);
+        if (levelPowers.length) {
+            powersHtml += `
+                <h3 class="text-3xl font-bold mt-8 mb-4 text-red-500 border-b border-red-800 pb-2">
+                    Nivel ${level}
+                </h3>`;
+            levelPowers.forEach(p => {
                 powersHtml += `
                     <div class="mb-6 bg-black bg-opacity-30 p-4 rounded-lg border border-gray-800 shadow-lg">
-                        <h4 class="text-2xl font-bold text-yellow-400">${power.name}</h4>
-                        <p class="mb-3 italic text-gray-400">${power.effect}</p>
+                        <h4 class="text-2xl font-bold text-yellow-400">${p.name}</h4>
+                        <p class="mb-3 italic text-gray-400">${p.effect}</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-sm">
-                            <p><strong class="text-gray-500 block">Costo:</strong> ${power.cost}</p>
-                            <p><strong class="text-gray-500 block">Prerequisito:</strong> ${power.prerequisite}</p>
-                            <p><strong class="text-gray-500 block">Amalgama:</strong> ${power.amalgam}</p>
-                            <p><strong class="text-gray-500 block">Duración:</strong> ${power.duration}</p>
-                            <p><strong class="text-gray-500 block">Reserva de Dados:</strong> ${power.dice}</p>
-                            <p><strong class="text-gray-500 block">Reserva Opuesta:</strong> ${power.opposing}</p>
+                            <p><strong class="text-gray-500 block">Costo:</strong> ${p.cost}</p>
+                            <p><strong class="text-gray-500 block">Prerequisito:</strong> ${p.prerequisite}</p>
+                            <p><strong class="text-gray-500 block">Amalgama:</strong> ${p.amalgam}</p>
+                            <p><strong class="text-gray-500 block">Duración:</strong> ${p.duration}</p>
+                            <p><strong class="text-gray-500 block">Reserva de Dados:</strong> ${p.dice}</p>
+                            <p><strong class="text-gray-500 block">Reserva Opuesta:</strong> ${p.opposing}</p>
                         </div>
-                        <p class="mt-3 text-sm text-gray-500 border-t border-gray-700 pt-2"><strong class="text-gray-400">Notas:</strong> ${power.notes}</p>
-                        <p class="mt-2 text-xs text-right text-gray-600">${power.source}</p>
-                    </div>
-                `;
+                        <p class="mt-3 text-sm text-gray-500 border-t border-gray-700 pt-2">
+                            <strong class="text-gray-400">Notas:</strong> ${p.notes}
+                        </p>
+                        <p class="mt-2 text-xs text-right text-gray-600">${p.source}</p>
+                    </div>`;
             });
         }
     }
 
     let ritualsHtml = '';
-    if (data.rituals && data.rituals.length > 0) {
-        ritualsHtml += `<h3 class="text-3xl font-bold mt-8 mb-4 text-red-500 border-b border-red-800 pb-2">Rituales</h3>`;
-        data.rituals.forEach(ritualLevel => {
+    if (data.rituals?.length) {
+        ritualsHtml += `
+            <h3 class="text-3xl font-bold mt-8 mb-4 text-red-500 border-b border-red-800 pb-2">
+                Rituales
+            </h3>`;
+        data.rituals.forEach(r => {
             ritualsHtml += `
                 <div class="mb-4 bg-black bg-opacity-30 p-4 rounded-lg border border-gray-800">
-                    <h4 class="text-xl font-bold text-yellow-400">Nivel ${ritualLevel.level}</h4>
+                    <h4 class="text-xl font-bold text-yellow-400">Nivel ${r.level}</h4>
                     <ul class="list-disc list-inside text-gray-400 mt-2">
-                        ${ritualLevel.names.map(name => `<li>${name}</li>`).join('')}
+                        ${r.names.map(n => `<li>${n}</li>`).join('')}
                     </ul>
-                </div>
-            `;
+                </div>`;
         });
     }
 
@@ -96,7 +89,7 @@ function renderDiscipline(disciplineName) {
         <div class="bg-black bg-opacity-20 p-6 rounded-lg border border-gray-800">
             <div class="border-b-2 border-red-800 pb-4 mb-6">
                 <h2 class="text-4xl font-bold text-red-500">${data.title}</h2>
-                <p class="text-gray-400 italic mt-1">${data.subtitle}</p>
+                ${data.subtitle ? `<p class="text-gray-400 italic mt-1">${data.subtitle}</p>` : ''}
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6 text-center bg-black bg-opacity-40 p-3 rounded-md">
                 <div><strong class="block text-gray-500 text-sm">Tipo</strong> ${data.type}</div>
@@ -106,17 +99,15 @@ function renderDiscipline(disciplineName) {
             </div>
             <h3 class="text-2xl font-bold mb-2 text-red-500">Descripción General</h3>
             <p class="text-gray-300 leading-relaxed">${data.description}</p>
-
             ${powersHtml}
             ${ritualsHtml}
-        </div>
-    `;
+        </div>`;
 }
 
 function updateActiveButton() {
-    document.querySelectorAll('#discipline-list li button').forEach(button => {
-        button.classList.toggle('active', button.dataset.discipline === currentDiscipline);
-    });
+    document.querySelectorAll('#discipline-list button').forEach(btn =>
+        btn.classList.toggle('active', btn.dataset.discipline === currentDiscipline)
+    );
 }
 
 function normalizeText(str) {
@@ -124,63 +115,43 @@ function normalizeText(str) {
 }
 
 function filterAndRenderNav() {
-    const searchTerm = normalizeText(searchBar.value);
-    const selectedClan = normalizeText(clanFilter.value);
-    const listItems = navContainer.querySelectorAll('li');
-
-    listItems.forEach(item => {
-        const disciplineKey = item.querySelector('button').dataset.discipline;
-        const discipline = disciplines[disciplineKey];
-
-        const clanMatch = selectedClan === 'all' || discipline.affinity.some(clan => normalizeText(clan) === selectedClan);
-
-        const searchMatch = normalizeText(discipline.title).includes(searchTerm) ||
-                            discipline.powers.some(power => normalizeText(power.name).includes(searchTerm));
-
-        if (clanMatch && searchMatch) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
-        }
+    const term = normalizeText(searchBar.value);
+    const clan = normalizeText(clanFilter.value);
+    navContainer.querySelectorAll('li').forEach(li => {
+        const key = li.querySelector('button').dataset.discipline;
+        const d   = disciplines[key];
+        const byClan   = clan === 'all' || d.affinity.some(c => normalizeText(c) === clan);
+        const bySearch = normalizeText(d.title).includes(term)
+            || d.powers.some(p => normalizeText(p.name).includes(term));
+        li.style.display = (byClan && bySearch) ? '' : 'none';
     });
 }
 
 function populateClanFilter() {
-    const clans = new Set();
-    Object.values(disciplines).forEach(d => {
-        d.affinity.forEach(clan => clans.add(clan));
-    });
-
-    const sortedClans = Array.from(clans).sort();
-
-    clanFilter.innerHTML = '<option value="all">Todos los Clanes</option>';
-    sortedClans.forEach(clan => {
-        const option = document.createElement('option');
-        option.value = clan;
-        option.textContent = clan;
-        clanFilter.appendChild(option);
-    });
+    const clanSet = new Set();
+    Object.values(disciplines).forEach(d => d.affinity.forEach(c => clanSet.add(c)));
+    const sorted = Array.from(clanSet).sort();
+    clanFilter.innerHTML = '<option value="all">Todos los Clanes</option>' +
+        sorted.map(c => `<option value="${c}">${c}</option>`).join('');
 }
 
 function initialize() {
-    const navList = document.getElementById('discipline-list');
-    const sortedKeys = Object.keys(disciplines).sort((a, b) => disciplines[a].title.localeCompare(disciplines[b].title));
-
-    navList.innerHTML = '';
-    sortedKeys.forEach(key => {
-        const discipline = disciplines[key];
+    const keys = Object.keys(disciplines).sort((a,b) =>
+        disciplines[a].title.localeCompare(disciplines[b].title)
+    );
+    navContainer.innerHTML = '';
+    keys.forEach(key => {
+        const btn = document.createElement('button');
+        btn.textContent = disciplines[key].title;
+        btn.dataset.discipline = key;
+        btn.className = 'w-full text-left p-3 rounded-md transition-colors duration-200 hover:bg-red-900/50 focus:outline-none focus:ring-2 focus:ring-red-700 discipline-btn border-l-4 border-transparent';
+        btn.onclick = () => renderDiscipline(key);
         const li = document.createElement('li');
-        const button = document.createElement('button');
-        button.textContent = discipline.title;
-        button.dataset.discipline = key;
-        button.className = 'w-full text-left p-3 rounded-md transition-colors duration-200 hover:bg-red-900/50 focus:outline-none focus:ring-2 focus:ring-red-700 discipline-btn border-l-4 border-transparent';
-        button.onclick = () => renderDiscipline(key);
-        li.appendChild(button);
-        navList.appendChild(li);
+        li.append(btn);
+        navContainer.append(li);
     });
 
     populateClanFilter();
-
     searchBar.addEventListener('input', filterAndRenderNav);
     clanFilter.addEventListener('change', filterAndRenderNav);
 
@@ -189,19 +160,34 @@ function initialize() {
     navClanLore.addEventListener('click', () => switchView('clan-lore'));
 
     window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.remove('opacity-0', 'invisible');
-        } else {
-            backToTopButton.classList.add('opacity-0', 'invisible');
-        }
+        backToTopButton.classList.toggle('invisible', window.pageYOffset <= 300);
+        backToTopButton.classList.toggle('opacity-0',   window.pageYOffset <= 300);
+        backToTopButton.classList.toggle('opacity-100', window.pageYOffset > 300);
     });
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    backToTopButton.addEventListener('click', () =>
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    );
 
-    if (sortedKeys.length > 0) {
-        renderDiscipline(currentDiscipline || sortedKeys[0]);
+    if (keys.length) renderDiscipline(currentDiscipline || keys[0]);
+}
+
+function setupClanButtons() {
+    const buttons = document.querySelectorAll('.clan-btn');
+    const sections = document.querySelectorAll('.clan-content');
+    const titleEl  = document.getElementById('clan-lore-title');
+
+    function activate(id) {
+        buttons.forEach(b => b.classList.toggle('active', b.dataset.target === id));
+        sections.forEach(s => s.classList.toggle('active', s.id === id));
+
+        const active = Array.from(buttons).find(b => b.dataset.target === id);
+        if (titleEl && active) {
+            titleEl.textContent = `Lore de los Clanes: ${active.textContent}`;
+        }
     }
+
+    buttons.forEach(btn => btn.addEventListener('click', () => activate(btn.dataset.target)));
+    if (buttons.length) activate(buttons[0].dataset.target);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -209,33 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(r => r.json())
         .then(data => { disciplines = data; initialize(); })
         .catch(err => console.error('Failed to load disciplines:', err));
+
     setupClanButtons();
 });
-
-function setupClanButtons() {
-    const buttons = document.querySelectorAll('.clan-btn');
-    const sections = document.querySelectorAll('.clan-content');
-    const title = document.getElementById('clan-lore-title');
-
-    function activate(targetId) {
-        buttons.forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.target === targetId);
-        });
-        sections.forEach(sec => {
-            sec.classList.toggle('active', sec.id === targetId);
-        });
-
-        const activeBtn = Array.from(buttons).find(b => b.dataset.target === targetId);
-        if (title && activeBtn) {
-            title.textContent = `Lore de los Clanes: ${activeBtn.textContent}`;
-        }
-    }
-
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => activate(btn.dataset.target));
-    });
-
-    if (buttons.length > 0) {
-        activate(buttons[0].dataset.target);
-    }
-}
