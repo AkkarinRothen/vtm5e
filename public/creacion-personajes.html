@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creación de Personajes - VTM Wiki</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Dark background for a gothic feel */
+            color: #e2e8f0; /* Light text color */
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #2d3748; /* Slightly lighter dark background for content */
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #cbd5e0; /* Lighter headings */
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            border-bottom: 2px solid #4a5568; /* Subtle border under headings */
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        ol {
+            list-style-type: decimal;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        a {
+            color: #63b3ed; /* Link color */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .section-divider {
+            border-top: 1px solid #4a5568;
+            margin: 2rem 0;
+        }
+        .note {
+            background-color: #3e4a5b;
+            border-left: 4px solid #63b3ed;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="container">
+        <header class="text-center mb-6">
+            <h1 class="text-indigo-300">Creación de Personajes</h1>
+            <p class="text-gray-400">De VTM Wiki</p>
+        </header>
+
+        <section id="introduccion" class="mb-8">
+            <h2 class="text-indigo-300">Introducción</h2>
+            <p>Este artículo es una guía completa para la creación de personajes en el juego de rol <strong>Vampiro: La Mascarada (VTM)</strong>. Abarca todos los aspectos necesarios para construir un personaje jugable, desde su concepto inicial hasta sus habilidades y trasfondo.</p>
+        </section>
+
+        <section id="informacion-basica" class="mb-8">
+            <h2 class="text-indigo-300">Información Básica del Personaje</h2>
+            <p>Aquí se definen los elementos fundamentales que dan forma a la identidad de tu personaje:</p>
+            <ul class="list-disc ml-6">
+                <li><strong>Nombre:</strong> La identidad de tu personaje.</li>
+                <li><strong>Concepto:</strong> Una breve descripción de quién era tu personaje antes del Abrazo y qué tipo de persona es ahora.</li>
+                <li><strong>Tipo de Depredador:</strong> Cómo obtiene sangre tu personaje.</li>
+                <li><strong>Crónica:</strong> El nombre de la historia o campaña en la que participará tu personaje.</li>
+                <li><strong>Ambición:</strong> El objetivo a largo plazo de tu personaje.</li>
+                <li><strong>Clan:</strong> La línea de sangre vampírica a la que pertenece tu personaje.</li>
+                <li><strong>Sire:</strong> El vampiro que Abrazó a tu personaje.</li>
+                <li><strong>Deseo:</strong> Un objetivo a corto plazo o una necesidad inmediata de tu personaje.</li>
+                <li><strong>Generación:</strong> Cuán lejos está tu personaje de Caín.</li>
+            </ul>
+        </section>
+
+        <section id="clanes" class="mb-8">
+            <h2 class="text-indigo-300">Clanes</h2>
+            <p>Cada clan vampírico tiene sus propias características, Disciplinas y maldiciones. Elegir un clan es una de las decisiones más importantes en la creación de personajes.</p>
+            <div class="note">
+                <p>Para más detalles sobre los clanes, consulta la sección de <a href="#">Clanes</a> en la VTM Wiki.</p>
+            </div>
+        </section>
+
+        <section id="mar-del-tiempo" class="mb-8">
+            <h2 class="text-indigo-300">Mar del Tiempo (Edad, Abrazo, Generación, Potencia de Sangre)</h2>
+            <p>Esta sección profundiza en la historia no-muerta de tu personaje:</p>
+            <ul class="list-disc ml-6">
+                <li><strong>Edad:</strong> La edad de tu personaje en el momento del Abrazo.</li>
+                <li><strong>Abrazado:</strong> La fecha o el período en que tu personaje fue transformado en vampiro.</li>
+                <li><strong>Generación:</strong> Como se mencionó anteriormente, su cercanía a Caín.</li>
+                <li><strong>Potencia de Sangre:</strong> Representa la fuerza de la sangre de tu personaje, afectando sus Disciplinas y la dificultad de ciertas acciones.</li>
+            </ul>
+        </section>
+
+        <section id="atributos" class="mb-8">
+            <h2 class="text-indigo-300">Atributos (Físicos, Sociales, Mentales)</h2>
+            <p>Los atributos representan las capacidades innatas de tu personaje y se dividen en tres categorías:</p>
+            <ul class="list-disc ml-6">
+                <li><strong>Físicos:</strong> Fuerza, Destreza, Resistencia.</li>
+                <li><strong>Sociales:</strong> Carisma, Manipulación, Apariencia.</li>
+                <li><strong>Mentales:</strong> Inteligencia, Astucia, Resolución.</li>
+            </ul>
+            <p>Se distribuyen puntos entre estos atributos para reflejar las fortalezas y debilidades de tu personaje.</p>
+        </section>
+
+        <section id="habilidades" class="mb-8">
+            <h2 class="text-indigo-300">Habilidades (Físicas, Sociales, Mentales)</h2>
+            <p>Las habilidades representan el conocimiento y la experiencia adquirida por tu personaje. También se dividen en tres categorías, cada una con varias habilidades específicas:</p>
+            <ul class="list-disc ml-6">
+                <li><strong>Físicas:</strong> Atletismo, Pelea, Armas de Fuego, Armas Blancas, Conducir, Sigilo, Supervivencia.</li>
+                <li><strong>Sociales:</strong> Empatía, Etiqueta, Intimidación, Liderazgo, Persuasión, Subterfugio.</li>
+                <li><strong>Mentales:</strong> Académicos, Conciencia, Finanzas, Medicina, Ocultismo, Política, Tecnología.</li>
+            </ul>
+            <p>Al igual que los atributos, se distribuyen puntos para reflejar la pericia de tu personaje en diversas áreas.</p>
+        </section>
+
+        <section id="disciplinas" class="mb-8">
+            <h2 class="text-indigo-300">Disciplinas</h2>
+            <p>Las Disciplinas son los poderes sobrenaturales que los vampiros obtienen de su sangre. Cada clan tiene un conjunto de Disciplinas inherentes.</p>
+            <div class="note">
+                <p>Para una lista completa y descripciones de las Disciplinas, visita la página de <a href="#">Disciplinas</a> en la VTM Wiki.</p>
+            </div>
+        </section>
+
+        <section id="principios-de-la-cronica" class="mb-8">
+            <h2 class="text-indigo-300">Principios de la Crónica</h2>
+            <p>Estos son los principios morales y éticos que rigen la crónica. Tu personaje y los demás jugadores deben adherirse a ellos para mantener la coherencia temática y narrativa del juego.</p>
+        </section>
+
+        <section id="puntos-de-apoyo-y-convicciones" class="mb-8">
+            <h2 class="text-indigo-300">Puntos de Apoyo y Convicciones</h2>
+            <p>Los puntos de apoyo son personas, lugares o cosas mortales que tu personaje valora y que lo anclan a su humanidad. Las convicciones son las creencias fundamentales que tu personaje tiene y que lo ayudan a mantener su humanidad frente a la Bestia.</p>
+        </section>
+
+        <section id="ventajas-y-defectos" class="mb-8">
+            <h2 class="text-indigo-300">Ventajas y Defectos (Méritos y Defectos, Hojas de Saber, Creación de Coterie)</h2>
+            <p>Esta sección permite personalizar aún más a tu personaje:</p>
+            <ul class="list-disc ml-6">
+                <li><strong>Méritos y Defectos:</strong> Rasgos opcionales que otorgan ventajas o desventajas a tu personaje.</li>
+                <li><strong>Hojas de Saber (Loresheets):</strong> Proporcionan conexiones con el trasfondo del mundo de la Mascarada y otorgan beneficios únicos.</li>
+                <li><strong>Creación de Coterie:</strong> Define el grupo de vampiros al que pertenece tu personaje y los recursos compartidos.</li>
+            </ul>
+            <div class="note">
+                <p>Para una lista detallada de Méritos y Defectos, consulta la página correspondiente en la VTM Wiki.</p>
+            </div>
+        </section>
+
+        <section id="potencia-de-sangre" class="mb-8">
+            <h2 class="text-indigo-300">Potencia de Sangre</h2>
+            <p>La Potencia de Sangre es un rasgo crucial que afecta directamente las capacidades de tu personaje vampírico, incluyendo la efectividad de sus Disciplinas, la cantidad de sangre que puede almacenar y la dificultad de ciertas acciones.</p>
+        </section>
+
+        <p class="text-sm text-gray-400 mt-8">Contenido adaptado de la <a href="https://vtm.paradoxwikis.com" class="hover:underline">VTM Wiki</a>.</p>
+    </div>
+</body>
+</html>
