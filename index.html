@@ -123,11 +123,16 @@
         </div>
         <div id="clan-lore-view" class="content-section">
             <div class="bg-black bg-opacity-20 p-6 md:p-8 rounded-lg border border-gray-800">
-                <h2 class="text-4xl font-bold text-red-500 mb-6 border-b-2 border-red-800 pb-4">Lore de los Clanes: Nosferatu</h2>
-                <div class="flex justify-center mb-6">
-                    <img src="public/images/Nosferatu.webp" alt="Ilustración de un Nosferatu" class="w-full max-w-xl h-auto rounded shadow-md">
+                <h2 class="text-4xl font-bold text-red-500 mb-6 border-b-2 border-red-800 pb-4">Lore de los Clanes</h2>
+                <div class="mb-6 flex flex-wrap gap-2">
+                    <button class="clan-btn px-4 py-2 rounded-md bg-red-800/50 hover:bg-red-700 transition-colors" data-target="lore-nosferatu">Nosferatu</button>
+                    <button class="clan-btn px-4 py-2 rounded-md bg-red-800/50 hover:bg-red-700 transition-colors" data-target="lore-malkavian">Malkavian</button>
                 </div>
-                <div class="space-y-4 text-gray-300 leading-relaxed">
+                <div id="lore-nosferatu" class="clan-content">
+                    <div class="flex justify-center mb-6">
+                        <img src="public/images/Nosferatu.webp" alt="Ilustración de un Nosferatu" class="w-full max-w-xl h-auto rounded shadow-md">
+                    </div>
+                    <div class="space-y-4 text-gray-300 leading-relaxed">
                     <p>Los <strong>Nosferatu</strong> – también conocidos como el Clan de los Ocultos, los Horrores o las Ratas de Alcantarilla – son uno de los catorce clanes de Vampire: La Mascarada. Tras el Abrazo su cuerpo se retuerce en un proceso extremadamente doloroso, dejándolos deformados de por vida. Suelen habitar los márgenes de la sociedad y actúan como espías y traficantes de información. Gracias a su dominio de las Disciplinas y a una red de contactos marginales, pocos secretos escapan a los Nosferatu.</p>
 
                     <p><strong>Disciplinas:</strong> Animalismo, Ofuscación y Potencia.</p>
@@ -173,7 +178,23 @@
                     </ul>
                 </div>
             </div>
+                <div id="lore-malkavian" class="clan-content">
+                <div class="flex justify-center mb-6">
+                    <img src="https://cdn.mos.cms.futurecdn.net/PPqAgbdJpMi678Dfdp6MjZ.png" alt="Ilustración de un Malkavian" class="w-full max-w-xl h-auto rounded shadow-md">
+                </div>
+                <div class="space-y-4 text-gray-300 leading-relaxed">
+                    <p>El <strong>Clan de la Luna</strong>, también conocidos como Lunáticos, Locos, Bufones, Oráculos, Derviches, Visionarios u Hijos de Malkav.</p>
+                    <h3 class="text-2xl text-yellow-400 mb-2">Trasfondo</h3>
+                    <p>Los Malkavian son uno de los catorce clanes de Vampiro: La Mascarada. Calificados como Lunáticos por otros Vampiros, su sangre les permite percibir y predecir verdades ocultas para los demás. Su perspectiva fracturada proviene de haber visto demasiado del mundo de una sola vez y de sentir emociones demasiado poderosas para soportarlas.</p>
+                    <p>Los Abrazos se realizan a personas de todo tipo y edad por motivos solo visibles para el sire. Algunos poseen la <em>Segunda Visión</em>, capacidad para comprender sueños, percibir espíritus o predecir el futuro. Otros destacan por su <em>perspicacia</em>, alta empatía y conocimiento preciso. Muchos provienen de profesiones académicas o médicas, y otros han quedado rotos por traumas. Esta inestabilidad hace que muchos Vástagos desconfíen de ellos.</p>
+                    <p>Algunos Hijos de Malkav afirman estar unidos de forma psíquica en una Telaraña o Red.</p>
+                    <p><strong>Disciplinas de Clan:</strong> Auspex, Dominación, Ofuscación.</p>
+                    <p><strong>Prohibición:</strong> Perspectiva fracturada.</p>
+                    <p><strong>Compulsión:</strong> Delirio.</p>
+                </div>
+            </div>
         </div>
+    </div>
 
         <footer class="text-center mt-12 text-gray-600 text-sm">
             <p>Contenido basado en la 5ª Edición de Vampiro: La Mascarada.</p>
