@@ -2,48 +2,52 @@
   --vtm-bg: #0c0a09;
   --vtm-red: #991B1B;
   --vtm-gold: #FACC15;
-  --vtm-text: #d1d5db;
-  --vtm-text-light: #F3F4F6;
 }
 
-/* Base typography and colors */
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--vtm-bg) url('https://www.transparenttextures.com/patterns/dark-leather.png');
-  color: var(--vtm-text);
+  background-color: var(--vtm-bg);
+  background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
+  color: #d1d5db;
 }
 
 h1, h2, h3, h4 {
   font-family: 'Cinzel Decorative', serif;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
   letter-spacing: 1px;
 }
 
-/* Active state for navigation and buttons */
 .nav-link.active,
-.discipline-btn.active,
+.discipline-btn.active {
+  background-color: var(--vtm-red);
+  color: #F3F4F6;
+}
+
+.discipline-btn.active {
+  border-left-color: var(--vtm-gold);
+}
+
+#back-to-top {
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
 .clan-btn.active {
   background-color: var(--vtm-red);
-  color: var(--vtm-text-light);
+  color: #F3F4F6;
 }
 
-/* Highlight border for discipline buttons */
-.discipline-btn.active {
-  border-left: 4px solid var(--vtm-gold);
-}
-
-/* Toggleable content visibility */
-.content-section,
 .clan-content {
   display: none;
 }
 
-.content-section.active,
 .clan-content.active {
   display: block;
-}
-
-/* Back-to-top button transitions */
-#back-to-top {
-  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
