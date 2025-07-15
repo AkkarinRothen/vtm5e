@@ -220,7 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        filteredDisciplitudes.forEach(discipline => {
+        // CORRECCIÓN: Cambiado 'filteredDisciplitudes' a 'filteredDisciplines'
+        filteredDisciplines.forEach(discipline => {
             const listItem = document.createElement('li');
             const button = document.createElement('button');
             button.classList.add(
