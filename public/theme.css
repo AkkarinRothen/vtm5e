@@ -2,52 +2,60 @@
   --vtm-bg: #0c0a09;
   --vtm-red: #991B1B;
   --vtm-gold: #FACC15;
+  --vtm-text: #d1d5db;
+  --vtm-text-dark: #1f2937;
+  --vtm-text-light: #F3F4F6;
+  --btn-padding: 0.5rem 1rem;
+  --btn-radius: 0.5rem;
 }
 
+/* Base Styles */
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--vtm-bg);
   background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
-  color: #d1d5db;
+  color: var(--vtm-text);
 }
 
 h1, h2, h3, h4 {
   font-family: 'Cinzel Decorative', serif;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   letter-spacing: 1px;
 }
 
-.nav-link.active,
-.discipline-btn.active {
+/* Button and Link Components */
+.btn, .discipline-btn, .clan-btn, .nav-link {
+  padding: var(--btn-padding);
+  border-radius: var(--btn-radius);
+  background-color: var(--vtm-gold);
+  color: var(--vtm-text-dark);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.btn:hover, .discipline-btn:hover, .clan-btn:hover, .nav-link:hover {
+  background-color: #eab308; /* darker gold */
+}
+
+.btn:focus, .discipline-btn:focus, .clan-btn:focus, .nav-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--vtm-gold);
+}
+
+.btn.active, .discipline-btn.active, .clan-btn.active, .nav-link.active {
   background-color: var(--vtm-red);
-  color: #F3F4F6;
+  color: var(--vtm-text-light);
 }
 
-.discipline-btn.active {
-  border-left-color: var(--vtm-gold);
-}
-
-#back-to-top {
-  transition: opacity 0.3s, visibility 0.3s;
-}
-
-.content-section {
-  display: none;
-}
-
-.content-section.active {
-  display: block;
-}
-
-.clan-btn.active {
-  background-color: var(--vtm-red);
-  color: #F3F4F6;
-}
-
+/* Toggleable Content */
+.discipline-content,
 .clan-content {
   display: none;
 }
 
+.discipline-content.active,
 .clan-content.active {
   display: block;
 }
