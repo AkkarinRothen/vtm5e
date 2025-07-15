@@ -1,53 +1,84 @@
+/* Variables for consistent theming */
 :root {
   --vtm-bg: #0c0a09;
   --vtm-red: #991B1B;
   --vtm-gold: #FACC15;
+  --vtm-text: #d1d5db;
+  --vtm-text-light: #F3F4F6;
+  --transition-speed: 0.3s;
+}
+
+/* Global settings */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--vtm-bg);
-  background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
-  color: #d1d5db;
+  background: var(--vtm-bg) url('https://www.transparenttextures.com/patterns/dark-leather.png');
+  color: var(--vtm-text);
+  line-height: 1.6;
 }
 
-h1, h2, h3, h4 {
+/* Headings styling */
+h1,
+h2,
+h3,
+h4 {
   font-family: 'Cinzel Decorative', serif;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   letter-spacing: 1px;
+  margin-bottom: 0.5em;
 }
 
-.nav-link.active,
-.discipline-btn.active {
-  background-color: var(--vtm-red);
-  color: #F3F4F6;
+/* Active state utility class */
+.is-active {
+  background-color: var(--vtm-red) !important;
+  color: var(--vtm-text-light) !important;
 }
 
-.discipline-btn.active {
+/* Navigation and discipline buttons */
+.nav-link.is-active,
+.discipline-btn.is-active,
+.clan-btn.is-active {
   border-left-color: var(--vtm-gold);
 }
 
-#back-to-top {
-  transition: opacity 0.3s, visibility 0.3s;
-}
-
-.content-section {
-  display: none;
-}
-
-.content-section.active {
-  display: block;
-}
-
-.clan-btn.active {
-  background-color: var(--vtm-red);
-  color: #F3F4F6;
-}
-
+/* Content toggles */
+.content-section,
 .clan-content {
   display: none;
+  transition: opacity var(--transition-speed) ease;
+  opacity: 0;
 }
 
-.clan-content.active {
+.content-section.is-active,
+.clan-content.is-active {
   display: block;
+  opacity: 1;
+}
+
+/* Back to top button */
+#back-to-top {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-speed), visibility var(--transition-speed);
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Accessibility: reduce motion if requested */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
 }
