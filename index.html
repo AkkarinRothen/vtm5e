@@ -3,332 +3,460 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Guía del Vástago con visor de Disciplinas VTM">
-    <title>Visor de Disciplinas VTM</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Guía completa para Vampiro: La Mascarada 5ª Edición, incluyendo un visor de Disciplinas, guía de creación de personaje y lore de clanes.">
+    <title>Guía del Vástago - Vampiro: La Mascarada V5</title>
+    
+    <!-- Preconnect for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon (placeholder - replace with your actual favicon) -->
+    <link rel="icon" href="https://placehold.co/32x32/880000/ffffff?text=V5" type="image/x-icon">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Theme Styles -->
     <link rel="stylesheet" href="public/theme.css">
 </head>
-<body class="text-gray-300">
+<body class="bg-gray-900 text-gray-300 font-inter antialiased">
 
     <div class="container mx-auto max-w-7xl p-4 md:p-6 lg:p-8">
-        <!-- Header -->
-        <header class="text-center mb-4">
-            <h1 class="text-4xl md:text-6xl font-bold text-red-600">Guía del Vástago</h1>
-            <p class="text-gray-400 mt-2 text-lg">Vampiro: La Mascarada 5ª Edición</p>
+        <!-- Header Section -->
+        <header class="text-center mb-8">
+            <h1 class="text-5xl md:text-7xl font-bold text-red-600 font-cinzel-decorative leading-tight">Guía del Vástago</h1>
+            <p class="text-gray-400 mt-2 text-xl">Vampiro: La Mascarada 5ª Edición</p>
         </header>
 
-        <!-- Banner -->
-        <div class="flex justify-center gap-4 mb-4">
+        <!-- Main Banner -->
+        <figure class="flex justify-center mb-8">
             <img
                 src="https://drawdistance.dev/wp-content/uploads/2020/01/Wallpaper_12-1920x1080-1.jpg"
-                alt="Ankh de Vampiro"
-                class="w-full max-w-4xl h-auto rounded shadow-md"
+                alt="Logo del Ankh de Vampiro: La Mascarada sobre un fondo oscuro."
+                class="w-full max-w-4xl h-auto rounded shadow-lg border border-gray-800"
+                loading="lazy"
             >
-        </div>
-        <p class="text-center text-gray-400 text-sm italic mb-4">
-            Las portadas mostradas arriba son ejemplos para ilustración y pertenecen a sus respectivos propietarios.
-        </p>
+            <figcaption class="text-center text-gray-500 text-sm italic mt-2">
+                Las imágenes mostradas son ejemplos para ilustración y pertenecen a sus respectivos propietarios.
+            </figcaption>
+        </figure>
 
-        <!-- Navigation -->
-        <nav class="mb-8 flex flex-col sm:flex-row justify-center items-stretch bg-black bg-opacity-20 border-y border-gray-800 sticky top-0 z-20">
-            <button id="nav-disciplines" class="nav-link active flex-1 p-3 text-lg font-bold text-gray-300 hover:bg-red-900/50 transition-colors">
+        <!-- Main Navigation -->
+        <nav class="mb-10 flex flex-col sm:flex-row justify-center items-stretch bg-black bg-opacity-30 border-y border-gray-700 sticky top-0 z-20 shadow-xl">
+            <button id="nav-disciplines" class="nav-link active flex-1 p-4 text-lg font-bold text-gray-200 hover:bg-red-800/60 transition-colors duration-200 ease-in-out uppercase tracking-wide">
                 Disciplinas
             </button>
-            <button id="nav-char-creation" class="nav-link flex-1 p-3 text-lg font-bold text-gray-300 hover:bg-red-900/50 transition-colors sm:border-l border-gray-800">
+            <button id="nav-char-creation" class="nav-link flex-1 p-4 text-lg font-bold text-gray-200 hover:bg-red-800/60 transition-colors duration-200 ease-in-out sm:border-l border-gray-700 uppercase tracking-wide">
                 Creación de Personaje
             </button>
-            <button id="nav-clan-lore" class="nav-link flex-1 p-3 text-lg font-bold text-gray-300 hover:bg-red-900/50 transition-colors sm:border-l border-gray-800">
+            <button id="nav-clan-lore" class="nav-link flex-1 p-4 text-lg font-bold text-gray-200 hover:bg-red-800/60 transition-colors duration-200 ease-in-out sm:border-l border-gray-700 uppercase tracking-wide">
                 Lore de Clanes
             </button>
             <a href="public/vtm-v5-espanol.html"
-               target="_blank"
-               class="flex-1 p-3 text-lg font-bold text-gray-300 hover:bg-red-900/50 transition-colors sm:border-l border-gray-800 text-center">
+               target="_blank" rel="noopener noreferrer"
+               class="flex-1 p-4 text-lg font-bold text-gray-200 hover:bg-red-800/60 transition-colors duration-200 ease-in-out sm:border-l border-gray-700 text-center uppercase tracking-wide">
                 Cheat&nbsp;Sheet
             </a>
         </nav>
 
-        <!-- DISCIPLINES VIEW -->
-        <div id="disciplines-view" class="content-section active">
-            <!-- Controles de Búsqueda y Filtro -->
-            <div id="controls-section"
-                 class="mb-8 p-4 bg-black bg-opacity-20 rounded-lg backdrop-blur-sm border border-gray-800 flex flex-col md:flex-row gap-4 items-center sticky top-4 z-10">
-                <div class="relative w-full md:w-1/2">
-                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                        <!-- lupa -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                  clip-rule="evenodd" />
-                        </svg>
-                    </span>
-                    <input type="text" id="search-bar"
-                           placeholder="Buscar por nombre de disciplina o poder..."
-                           class="w-full bg-gray-900 border border-gray-700 rounded-md py-2 pl-10 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-red-600">
+        <!-- Content Sections -->
+        <main>
+            <!-- DISCIPLINES VIEW -->
+            <section id="disciplines-view" class="content-section active">
+                <h2 class="sr-only">Visor de Disciplinas</h2>
+                <!-- Search and Filter Controls -->
+                <div id="controls-section"
+                     class="mb-8 p-5 bg-black bg-opacity-25 rounded-xl backdrop-blur-sm border border-gray-700 flex flex-col md:flex-row gap-5 items-center sticky top-24 z-10 shadow-lg">
+                    <div class="relative w-full md:w-1/2">
+                        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                        <input type="text" id="search-bar"
+                               aria-label="Buscar por nombre de disciplina o poder"
+                               placeholder="Buscar por nombre de disciplina o poder..."
+                               class="w-full bg-gray-900 border border-gray-600 rounded-lg py-3 pl-12 pr-5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-colors">
+                    </div>
+                    <div class="relative w-full md:w-1/2">
+                        <label for="clan-filter" class="sr-only">Filtrar por Clan</label>
+                        <select id="clan-filter"
+                                class="w-full bg-gray-900 border border-gray-600 rounded-lg py-3 px-5 text-white focus:outline-none focus:ring-2 focus:ring-red-600 appearance-none pr-10 cursor-pointer">
+                            <option value="">Todos los Clanes</option>
+                            <!-- Clan options will be dynamically generated by JS -->
+                        </select>
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </div>
                 </div>
-                <div class="relative w-full md:w-1/2">
-                    <label for="clan-filter" class="sr-only">Filtrar por Clan</label>
-                    <select id="clan-filter"
-                            class="w-full bg-gray-900 border border-gray-700 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-red-600 appearance-none">
-                        <!-- Opciones de clan -->
-                    </select>
-                    <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
-                        <!-- flecha -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                  clip-rule="evenodd" />
-                        </svg>
-                    </span>
+
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <aside class="lg:w-1/3 xl:w-1/4">
+                        <nav id="discipline-nav"
+                             aria-label="Navegación de Disciplinas"
+                             class="bg-black bg-opacity-25 p-5 rounded-xl border border-gray-700 sticky top-48 shadow-lg">
+                            <h2 class="text-2xl font-bold mb-4 text-red-500 font-cinzel-decorative">Disciplinas</h2>
+                            <ul id="discipline-list" class="space-y-2 h-[60vh] overflow-y-auto pr-3 custom-scrollbar">
+                                <!-- Dynamically generated discipline buttons -->
+                            </ul>
+                        </nav>
+                    </aside>
+                    <div id="discipline-content" class="lg:w-2/3 xl:w-3/4">
+                        <div class="text-center text-gray-500 bg-black bg-opacity-25 p-10 rounded-xl border border-gray-700 shadow-lg min-h-[400px] flex items-center justify-center">
+                            <p class="text-lg">Selecciona una disciplina de la lista para ver sus detalles.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="flex flex-col lg:flex-row gap-8">
-                <aside class="lg:w-1/3 xl:w-1/4">
-                    <nav id="discipline-nav"
-                         class="bg-black bg-opacity-20 p-4 rounded-lg border border-gray-800 sticky top-32">
-                        <h2 class="text-2xl font-bold mb-4 text-red-500">Disciplinas</h2>
-                        <ul id="discipline-list" class="space-y-1 h-[60vh] overflow-y-auto pr-2">
-                            <!-- botones generados dinámicamente -->
-                        </ul>
-                    </nav>
-                </aside>
-                <main id="discipline-content" class="lg:w-2/3 xl:w-3/4">
-                    <div class="text-center text-gray-500 bg-black bg-opacity-20 p-10 rounded-lg border border-gray-800">
-                        <p>Selecciona una disciplina de la lista para ver sus detalles.</p>
+            <!-- CHARACTER CREATION VIEW -->
+            <section id="character-creation-view" class="content-section hidden">
+                <div class="bg-black bg-opacity-25 p-6 md:p-10 rounded-xl border border-gray-700 shadow-lg">
+                    <h2 class="text-4xl md:text-5xl font-bold text-red-500 mb-8 border-b-2 border-red-800 pb-4 font-cinzel-decorative">
+                        Guía de Creación de Personaje
+                    </h2>
+                    <div class="space-y-8 text-gray-300 leading-relaxed">
+                        <!-- Step 1 -->
+                        <div>
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Paso 1: Concepto Central</h3>
+                            <p><strong class="text-gray-400">¿Quién eras?</strong> Antes del Abrazo, tu personaje era un mortal con una vida, esperanzas y miedos. Define un concepto simple (por ejemplo, "Médico desilusionado", "Artista callejero", "Activista político").</p>
+                            <p><strong class="text-gray-400">¿Quién eres ahora?</strong> El Abrazo lo cambió todo. ¿Cómo ha afectado tu concepto mortal? ¿Te aferras a tu antigua vida o la has abandonado por completo?</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div>
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Paso 2: Clan y Sire</h3>
+                            <p>Tu clan define tu linaje, tus debilidades inherentes (la Plaga del clan) y tus afinidades con las Disciplinas. Define también a tu Sire: ¿quién te Abrazó y por qué? Tu relación con tu sire puede ser una fuente importante de historias.</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div>
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Paso 3: Atributos</h3>
+                            <p>Distribuyes puntos en tres categorías: <strong class="text-gray-400">Físicos</strong>, <strong class="text-gray-400">Sociales</strong> y <strong class="text-gray-400">Mentales</strong>. Elige una categoría como primaria (4 puntos), una como secundaria (3 puntos) y una como terciaria (2 puntos). Asigna estos puntos entre los tres atributos de cada categoría. Todos los atributos comienzan con un punto gratis.</p>
+                        </div>
+                        <!-- Step 4 -->
+                        <div>
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Paso 4: Habilidades</h3>
+                            <p>Elige una distribución: <strong class="text-gray-400">Especialista</strong> (una habilidad a 3, tres a 2, cinco a 1) o <strong class="text-gray-400">Equilibrado</strong> (tres habilidades a 2, ocho a 1).</p>
+                        </div>
+                        <!-- Step 5 -->
+                        <div>
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Paso 5: Disciplinas</h3>
+                            <p>Recibes dos puntos para gastar en las Disciplinas de tu clan. Puedes poner ambos puntos en una disciplina o un punto en dos disciplinas diferentes.</p>
+                        </div>
+                        <!-- Step 6 -->
+                        <div>
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Paso 6: Tipo de Depredador</h3>
+                            <p>Elige un tipo de depredador. Esto define cómo cazas y te otorga una especialidad de habilidad, puntos adicionales en disciplinas y ventajas (méritos y trasfondos), pero también puede añadir manchas a tu humanidad.</p>
+                        </div>
+                        <!-- Step 7 -->
+                        <div>
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Paso 7: Ventajas</h3>
+                            <p>Gasta 7 puntos en trasfondos y méritos. Puedes tomar hasta 7 puntos en defectos para ganar puntos adicionales.</p>
+                        </div>
+                        <!-- Step 8 -->
+                        <div>
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Paso 8: Convicciones y Piedras de Toque</h3>
+                            <p>Establece de 1 a 3 convicciones (reglas morales) y para cada una, una piedra de toque (un mortal que la personifica).</p>
+                        </div>
+                        <!-- Step 9 -->
+                        <div>
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Paso 9: Humanidad y Hambre</h3>
+                            <p>Tu humanidad inicial es 7, menos las manchas de tu tipo de depredador. Tu hambre inicial es 1.</p>
+                        </div>
+                        <!-- Step 10 -->
+                        <div>
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Paso 10: Toques Finales</h3>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li><strong class="text-gray-400">Salud:</strong> Resistencia + 3</li>
+                                <li><strong class="text-gray-400">Fuerza de Voluntad:</strong> Compostura + Resolución</li>
+                                <li><strong class="text-gray-400">Potencia de Sangre:</strong> 1 para neonatos, 0 para sangre débil.</li>
+                                <li>Gasta 15 puntos de experiencia gratuita para mejorar tu personaje.</li>
+                            </ul>
+                        </div>
                     </div>
-                </main>
-            </div>
-        </div>
-
-        <!-- CHARACTER CREATION VIEW -->
-        <div id="character-creation-view" class="content-section">
-            <div class="bg-black bg-opacity-20 p-6 md:p-8 rounded-lg border border-gray-800">
-                <h2 class="text-4xl font-bold text-red-500 mb-6 border-b-2 border-red-800 pb-4">
-                    Creación de Personaje
-                </h2>
-                <div class="space-y-8 text-gray-300 leading-relaxed">
-                    <!-- Paso 1 -->
-                    <div>
-                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 1: Concepto Central</h3>
-                        <p><strong class="text-gray-400">¿Quién eras?</strong> Antes del Abrazo, tu personaje era un mortal con una vida, esperanzas y miedos. Define un concepto simple (por ejemplo, "Médico desilusionado", "Artista callejero", "Activista político").</p>
-                        <p><strong class="text-gray-400">¿Quién eres ahora?</strong> El Abrazo lo cambió todo. ¿Cómo ha afectado tu concepto mortal? ¿Te aferras a tu antigua vida o la has abandonado por completo?</p>
-                    </div>
-                    <!-- Paso 2 -->
-                    <div>
-                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 2: Clan y Sire</h3>
-                        <p>Tu clan define tu linaje, tus debilidades inherentes (la Plaga del clan) y tus afinidades con las Disciplinas. Define también a tu Sire: ¿quién te Abrazó y por qué? Tu relación con tu sire puede ser una fuente importante de historias.</p>
-                    </div>
-                    <!-- Paso 3 -->
-                    <div>
-                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 3: Atributos</h3>
-                        <p>Distribuyes puntos en tres categorías: Físicos, Sociales y Mentales. Elige una categoría como primaria (4 puntos), una como secundaria (3 puntos) y una como terciaria (2 puntos). Asigna estos puntos entre los tres atributos de cada categoría. Todos los atributos comienzan con un punto gratis.</p>
-                    </div>
-                    <!-- Paso 4 -->
-                    <div>
-                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 4: Habilidades</h3>
-                        <p>Elige una distribución: <strong class="text-gray-400">Especialista</strong> (una habilidad a 3, tres a 2, cinco a 1) o <strong class="text-gray-400">Equilibrado</strong> (tres habilidades a 2, ocho a 1).</p>
-                    </div>
-                    <!-- Paso 5 -->
-                    <div>
-                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 5: Disciplinas</h3>
-                        <p>Recibes dos puntos para gastar en las Disciplinas de tu clan. Puedes poner ambos puntos en una disciplina o un punto en dos disciplinas diferentes.</p>
-                    </div>
-                    <!-- Paso 6 -->
-                    <div>
-                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 6: Tipo de Depredador</h3>
-                        <p>Elige un tipo de depredador. Esto define cómo cazas y te otorga una especialidad de habilidad, puntos adicionales en disciplinas y ventajas (méritos y trasfondos), pero también puede añadir manchas a tu humanidad.</p>
-                    </div>
-                    <!-- Paso 7 -->
-                    <div>
-                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 7: Ventajas</h3>
-                        <p>Gasta 7 puntos en trasfondos y méritos. Puedes tomar hasta 7 puntos en defectos para ganar puntos adicionales.</p>
-                    </div>
-                    <!-- Paso 8 -->
-                    <div>
-                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 8: Convicciones y Piedras de Toque</h3>
-                        <p>Establece de 1 a 3 convicciones (reglas morales) y para cada una, una piedra de toque (un mortal que la personifica).</p>
-                    </div>
-                    <!-- Paso 9 -->
-                    <div>
-                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 9: Humanidad y Hambre</h3>
-                        <p>Tu humanidad inicial es 7, menos las manchas de tu tipo de depredador. Tu hambre inicial es 1.</p>
-                    </div>
-                    <!-- Paso 10 -->
-                    <div>
-                        <h3 class="text-2xl text-yellow-400 mb-2">Paso 10: Toques Finales</h3>
-                        <ul class="list-disc list-inside ml-4">
-                            <li><strong class="text-gray-400">Salud:</strong> Resistencia + 3</li>
-                            <li><strong class="text-gray-400">Fuerza de Voluntad:</strong> Compostura + Resolución</li>
-                            <li><strong class="text-gray-400">Potencia de Sangre:</strong> 1 para neonatos, 0 para sangre débil.</li>
-                            <li>Gasta 15 puntos de experiencia gratuita para mejorar tu personaje.</li>
-                        </ul>
-                    </div>
-                    <p class="text-center text-sm mt-6 text-gray-400">
-                        <a href="public/creacion-personajes.html" target="_blank" class="underline hover:text-red-400">
-                            Guía detallada de creación de personajes
+                    <p class="text-center text-sm mt-8 text-gray-400">
+                        <a href="public/creacion-personajes.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-red-400 transition-colors">
+                            Guía detallada de creación de personajes (PDF externo)
                         </a>
                     </p>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <!-- CLAN LORE VIEW -->
-        <div id="clan-lore-view" class="content-section">
-            <div class="bg-black bg-opacity-20 p-6 md:p-8 rounded-lg border border-gray-800">
-                <h2 class="text-4xl font-bold text-red-500 mb-6 border-b-2 border-red-800 pb-4">
-                    Lore de los Clanes
-                </h2>
+            <!-- CLAN LORE VIEW -->
+            <section id="clan-lore-view" class="content-section hidden">
+                <div class="bg-black bg-opacity-25 p-6 md:p-10 rounded-xl border border-gray-700 shadow-lg">
+                    <h2 class="text-4xl md:text-5xl font-bold text-red-500 mb-8 border-b-2 border-red-800 pb-4 font-cinzel-decorative">
+                        Lore de los Clanes
+                    </h2>
 
-                <!-- Selector de clan -->
-                <div class="mb-6 flex flex-wrap gap-2">
-                    <button class="clan-btn px-4 py-2 rounded-md bg-red-800/50 hover:bg-red-700 transition-colors"
-                            data-target="lore-nosferatu">
-                        Nosferatu
-                    </button>
-                    <button class="clan-btn px-4 py-2 rounded-md bg-red-800/50 hover:bg-red-700 transition-colors"
-                            data-target="lore-malkavian">
-                        Malkavian
-                    </button>
+                    <!-- Clan Selector Buttons -->
+                    <div class="mb-8 flex flex-wrap justify-center gap-3">
+                        <button class="clan-btn px-6 py-3 rounded-lg bg-red-800/60 text-lg font-semibold hover:bg-red-700 transition-colors duration-200 ease-in-out shadow-md active"
+                                data-target="lore-nosferatu">
+                            Nosferatu
+                        </button>
+                        <button class="clan-btn px-6 py-3 rounded-lg bg-red-800/60 text-lg font-semibold hover:bg-red-700 transition-colors duration-200 ease-in-out shadow-md"
+                                data-target="lore-malkavian">
+                            Malkavian
+                        </button>
+                        <button class="clan-btn px-6 py-3 rounded-lg bg-red-800/60 text-lg font-semibold hover:bg-red-700 transition-colors duration-200 ease-in-out shadow-md"
+                                data-target="lore-tremere">
+                            Tremere
+                        </button>
+                        <button class="clan-btn px-6 py-3 rounded-lg bg-red-800/60 text-lg font-semibold hover:bg-red-700 transition-colors duration-200 ease-in-out shadow-md"
+                                data-target="lore-ventrue">
+                            Ventrue
+                        </button>
+                        <button class="clan-btn px-6 py-3 rounded-lg bg-red-800/60 text-lg font-semibold hover:bg-red-700 transition-colors duration-200 ease-in-out shadow-md"
+                                data-target="lore-toreador">
+                            Toreador
+                        </button>
+                        <button class="clan-btn px-6 py-3 rounded-lg bg-red-800/60 text-lg font-semibold hover:bg-red-700 transition-colors duration-200 ease-in-out shadow-md"
+                                data-target="lore-gangrel">
+                            Gangrel
+                        </button>
+                        <button class="clan-btn px-6 py-3 rounded-lg bg-red-800/60 text-lg font-semibold hover:bg-red-700 transition-colors duration-200 ease-in-out shadow-md"
+                                data-target="lore-brujah">
+                            Brujah
+                        </button>
+                        <!-- Add more clan buttons here as you expand -->
+                    </div>
+
+                    <!-- Clan Content - Nosferatu -->
+                    <div id="lore-nosferatu" class="clan-content space-y-6">
+                        <div class="flex justify-center mb-6">
+                            <img src="public/images/Nosferatu.webp"
+                                 alt="Ilustración de un Nosferatu, mostrando su apariencia deformada."
+                                 class="w-full max-w-xl h-auto rounded shadow-lg border border-gray-800"
+                                 loading="lazy">
+                        </div>
+                        <div class="space-y-4 text-gray-300 leading-relaxed text-lg">
+                            <p>Los <strong>Nosferatu</strong> – también conocidos como el Clan de los Ocultos, los Horrores o las Ratas de Alcantarilla – son uno de los catorce clanes de Vampire: La Mascarada. Tras el Abrazo su cuerpo se retuerce en un proceso extremadamente doloroso, dejándolos deformados de por vida. Suelen habitar los márgenes de la sociedad y actúan como espías y traficantes de información. Gracias a su dominio de las Disciplinas y a una red de contactos marginales, pocos secretos escapan a los Nosferatu.</p>
+
+                            <p><strong>Disciplinas:</strong> Animalismo, Ofuscación y Potencia.</p>
+
+                            <p><strong>Plaga de clan:</strong> <em>Repulsividad</em>. La sangre maldita deforma de forma grotesca a todos los miembros del clan. Nunca pueden mejorar la Ventaja de Apariencia y deben asumir el Defecto <strong>Repulsivo</strong> (••). Cualquier intento por disfrazarse sufre una penalización igual a la severidad de su plaga.</p>
+
+                            <p><strong>Variante de Plaga:</strong> <em>Infestación</em>. La guarida de un Nosferatu siempre está plagada de alimañas, lo que entorpece la concentración y las interacciones sociales.</p>
+
+                            <p><strong>Compulsión:</strong> <em>Criptofilia</em>. El Nosferatu se obsesiona con conseguir información secreta. Hasta lograrlo, todas sus acciones no orientadas a ese objetivo reciben una penalización de dos dados.</p>
+
+                            <h3 class="text-2xl text-yellow-400 mb-2 mt-6 font-cinzel-decorative">Trasfondo</h3>
+                            <p>Los Nosferatu soportan su maldición a la vista de todos. Muchos utilizan Ofuscación, maquillaje o prótesis para mezclarse, mientras que otros prefieren ocultarse en las alcantarillas y lugares abandonados. Tras la caída de SchreckNET, la red que usaban para comunicarse, dependen de códigos y lenguajes en desuso para mantenerse fuera del alcance de la Segunda Inquisición.</p>
+
+                            <h3 class="text-2xl text-yellow-400 mb-2 mt-6 font-cinzel-decorative">Arquetipos de ejemplo</h3>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li><strong>Investigador Privado:</strong> Nadie contrataría sus servicios por su aspecto, pero su talento para reunir información es innegable.</li>
+                                <li><strong>Habitante Subterráneo:</strong> Vive entre ratas y desperdicios, saliendo a la superficie solo cuando es imprescindible.</li>
+                                <li><strong>Cleopatra:</strong> Su belleza de antaño fue arruinada por el Abrazo. Ahora solo queda un rostro deforme que oculta tras máscaras y apariencias cuidadas.</li>
+                                <li><strong>Especialista Tecnológico:</strong> Su aspecto repele, pero es el contacto ideal para hackear servidores o interceptar comunicaciones.</li>
+                            </ul>
+
+                            <h3 class="text-2xl text-yellow-400 mb-2 mt-6 font-cinzel-decorative">Personajes Notables</h3>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li><strong>Zelios</strong>, arquitecto y maestro planificador desaparecido en los túneles de Nueva York en los años 90.</li>
+                                <li><strong>Ambrus Maropis</strong>, referente de las tendencias y la protección de la Mascarada dentro de la Camarilla.</li>
+                                <li><strong>Nathaniel Bordruff</strong>, antiguo cazador convertido en Nosferatu que anhela la destrucción de toda la estirpe.</li>
+                                <li><strong>Wauneka</strong>, veterano de Vietnam y protector de los marginados de Chicago.</li>
+                                <li><strong>Jasper Heartwood</strong>, personaje de <em>LA by Night</em>, experto en sigilo con un lado humano pronunciado.</li>
+                                <li><strong>Khalid Al-Rashid</strong>, antiguo primogénito y maestro espadachín de Chicago desaparecido misteriosamente.</li>
+                                <li><strong>Belinde Buch</strong>, Princesa de Copenhague, famosa por su rostro inexpresivo y su ambición política.</li>
+                            </ul>
+
+                            <h3 class="text-2xl text-yellow-400 mb-2 mt-6 font-cinzel-decorative">Cultura</h3>
+                            <p>El Abrazo para un Nosferatu es un proceso lento y traumático que deforma su cuerpo durante semanas. Muchos se rodean de marginados o de quienes padecen enfermedades para pasar desapercibidos. Con frecuencia recurren a la Ofuscación o al uso de máscaras para ocultar su aspecto. El clan valora la información sobre todas las cosas y suele recompensar la lealtad dentro de las coteries.</p>
+                            <p>Los Nosferatu mantienen una relación complicada con las demás sectas. Tras traicionar a los Brujah para ganarse el favor de la Camarilla, muchos desconfían de ellos. Aun así, la Camarilla depende de sus habilidades como espías y cazadores. Los Nosferatu Anarquistas, conocidos como "Nosferatu Rojos", buscan librarse de la opresión y a menudo rompen la Mascarada con mayor descaro.</p>
+
+                            <h3 class="text-2xl text-yellow-400 mb-2 mt-6 font-cinzel-decorative">Loresheets Exclusivos</h3>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li>Descendiente de Zelios</li>
+                                <li>Cleopatras</li>
+                                <li>Londres bajo Londres</li>
+                                <li>Los Nictuku</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Clan Content - Malkavian -->
+                    <div id="lore-malkavian" class="clan-content hidden space-y-6">
+                        <div class="flex justify-center mb-6">
+                            <img src="https://cdn.mos.cms.futurecdn.net/PPqAgbdJpMi678Dfdp6MjZ-970-80.png.webp"
+                                 alt="Ilustración de un Malkavian, a menudo representada con un aura de misterio o locura."
+                                 class="w-full max-w-xl h-auto rounded shadow-lg border border-gray-800"
+                                 loading="lazy">
+                        </div>
+                        <div class="space-y-4 text-gray-300 leading-relaxed text-lg">
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Trasfondo</h3>
+                            <p>
+                                Los <strong>Malkavian</strong> son uno de los catorce clanes de vampiros de
+                                <em>Vampiro: La Mascarada</em>. Calificados como Lunáticos por otros
+                                vampiros, la Sangre de los Malkavian les permite percibir y predecir
+                                verdades ocultas a los demás. Como los “sabios locos” de la poesía, su
+                                perspectiva fracturada se debe a que han visto demasiado del mundo de
+                                una sola vez, comprendiendo las raíces profundas de las cosas y sintiendo
+                                emociones demasiado poderosas para soportarlas.
+                            </p>
+                            <p>
+                                Los Abrazo (Embraces) se realizan a personas de toda clase y edad, por
+                                motivos solo visibles al sire. Uno de sus dones —la <em>Segunda Visión</em>—
+                                les permite entender los sueños, percibir espíritus o predecir el futuro.
+                                Otro don es la <em>Perspicacia</em>: una empatía extrema y un conocimiento
+                                certero de cualquier tema. Por eso muchos Malkavian provienen de la academia
+                                o la medicina, y también buscan a aquellos “rotos” por traumas. Su inestabilidad
+                                hace que la mayoría de los Vástagos los consideren impredecibles y rehúyan su
+                                cercanía.
+                            </p>
+                            <p>
+                                Algunos Hijos de Malkav aseguran estar unidos por un vínculo psíquico
+                                —la llamada Telaraña o Red— que todos comparten<sup>[1]</sup>.
+                            </p>
+
+                            <h3 class="text-2xl text-yellow-400 mb-2 mt-6 font-cinzel-decorative">Galería</h3>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li>Hermanas Voerman</li>
+                                <li>Vasantasena</li>
+                                <li>Leysha</li>
+                            </ul>
+
+                            <h3 class="text-2xl text-yellow-400 mb-2 mt-6 font-cinzel-decorative">Conceptos del juego</h3>
+                            <p>
+                                <em>Clan de la Luna, Lunáticos, Locos, Bufones, Oráculos, Derviches,
+                                Visionarios, Hijos de Malkav</em>
+                            </p>
+
+                            <h3 class="text-2xl text-yellow-400 mb-2 mt-6 font-cinzel-decorative">Información de juego</h3>
+                            <p><strong>Disciplinas:</strong> Auspex / Dominación / Ofuscación</p>
+                            <p><strong>Prohibición:</strong> Perspectiva fracturada</p>
+                            <p><strong>Compulsión:</strong> Delirio</p>
+                            <p class="italic text-sm mt-4"><strong>Introducido en:</strong> Vampire: The Masquerade Corebook</p>
+
+                            <h3 class="text-2xl text-yellow-400 mb-2 mt-6 font-cinzel-decorative">Referencias</h3>
+                            <ul class="list-disc list-inside ml-4 text-gray-500 text-sm space-y-1">
+                                <li>
+                                    “Malkavian ES”, VTM Paradox Wiki, revisado en
+                                    <a href="https://vtm.paradoxwikis.com/index.php?title=Malkavian_ES&oldid=5783"
+                                       target="_blank" rel="noopener noreferrer" class="underline hover:text-red-400">oldid=5783</a><sup>[1]</sup>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Clan Content - Tremere (Example - Add full content as needed) -->
+                    <div id="lore-tremere" class="clan-content hidden space-y-6">
+                        <div class="flex justify-center mb-6">
+                            <img src="https://placehold.co/600x400/550000/ffffff?text=Tremere"
+                                 alt="Ilustración de un Tremere."
+                                 class="w-full max-w-xl h-auto rounded shadow-lg border border-gray-800"
+                                 loading="lazy">
+                        </div>
+                        <div class="space-y-4 text-gray-300 leading-relaxed text-lg">
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Los Tremere</h3>
+                            <p>Los <strong>Tremere</strong>, también conocidos como los Usurpadores o los Hechiceros, son un clan de vampiros que se distingue por su dominio de la Taumaturgia, una forma de magia de sangre. Originalmente un grupo de magos mortales que buscaron la inmortalidad, se transformaron en vampiros a través de rituales oscuros, ganándose la enemistad de otros clanes.</p>
+                            <p>Son conocidos por su estricta jerarquía y su enfoque en el conocimiento arcano. Su Plaga de Clan los hace vulnerables al control de sangre, y su Compulsión los lleva a buscar el control y el conocimiento a toda costa.</p>
+                            <p><strong>Disciplinas:</strong> Auspex, Dominación, Taumaturgia (Blood Sorcery).</p>
+                            <p><strong>Plaga de clan:</strong> <em>Vínculo de Sangre</em>. Los Tremere son más susceptibles a los Vínculos de Sangre. Requieren un solo sorbo de sangre para formar un Vínculo de Sangre de un punto, en lugar de tres.</p>
+                            <p><strong>Compulsión:</strong> <em>Paranoia</em>. El Tremere se vuelve paranoico, desconfiando de sus aliados y buscando conspiraciones ocultas. Sufre una penalización de dos dados a las tiradas sociales no relacionadas con la intimidación o la manipulación hasta que la compulsión se resuelve.</p>
+                        </div>
+                    </div>
+
+                    <!-- Clan Content - Ventrue (Example) -->
+                    <div id="lore-ventrue" class="clan-content hidden space-y-6">
+                        <div class="flex justify-center mb-6">
+                            <img src="https://placehold.co/600x400/000055/ffffff?text=Ventrue"
+                                 alt="Ilustración de un Ventrue."
+                                 class="w-full max-w-xl h-auto rounded shadow-lg border border-gray-800"
+                                 loading="lazy">
+                        </div>
+                        <div class="space-y-4 text-gray-300 leading-relaxed text-lg">
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Los Ventrue</h3>
+                            <p>Los <strong>Ventrue</strong>, los Reyes del Clan o los Aristócratas, son la columna vertebral de la Camarilla. Se ven a sí mismos como los líderes naturales de la sociedad vampírica, los guardianes de la Mascarada y los arquitectos del futuro. Seleccionan a sus Chiquillos entre la élite de la sociedad mortal: líderes empresariales, políticos, artistas influyentes y aquellos con un fuerte sentido de la ambición y el control.</p>
+                            <p>Su Plaga de Clan los obliga a alimentarse de un tipo específico de sangre, lo que puede ser una bendición o una maldición dependiendo de la disponibilidad de su presa preferida. Su Compulsión los impulsa a dominar y controlar su entorno.</p>
+                            <p><strong>Disciplinas:</strong> Dominación, Fortaleza, Presencia.</p>
+                            <p><strong>Plaga de clan:</strong> <em>Paladar Exigente</em>. Los Ventrue solo pueden alimentarse de un tipo específico de presa (ej. solo sangre de artistas, solo sangre de niños, solo sangre de nobles, etc.). Si se alimentan de otra cosa, no satisfacen su Hambre y pueden sufrir penalizaciones.</p>
+                            <p><strong>Compulsión:</strong> <em>Autoridad</em>. El Ventrue se siente impulsado a imponer su voluntad o tomar el control de una situación. Sufre una penalización de dos dados a las tiradas que no contribuyan a este objetivo hasta que la compulsión se resuelve o se ve obligado a ceder el control.</p>
+                        </div>
+                    </div>
+
+                    <!-- Clan Content - Toreador (Example) -->
+                    <div id="lore-toreador" class="clan-content hidden space-y-6">
+                        <div class="flex justify-center mb-6">
+                            <img src="https://placehold.co/600x400/770077/ffffff?text=Toreador"
+                                 alt="Ilustración de un Toreador."
+                                 class="w-full max-w-xl h-auto rounded shadow-lg border border-gray-800"
+                                 loading="lazy">
+                        </div>
+                        <div class="space-y-4 text-gray-300 leading-relaxed text-lg">
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Los Toreador</h3>
+                            <p>Los <strong>Toreador</strong> son los artistas, los amantes y los estetas del mundo vampírico. Conocidos como los Degenerados o los Perfeccionistas, buscan la belleza en todas sus formas, ya sea en el arte, la música, la moda o la experiencia humana. Abrazan a aquellos que poseen un talento excepcional o una belleza cautivadora, creyendo que el Abrazo puede preservar y perfeccionar estas cualidades.</p>
+                            <p>Su Plaga de Clan los hace fácilmente distraídos por la belleza, lo que puede ser peligroso en situaciones de riesgo. Su Compulsión los impulsa a buscar la aprobación y la admiración.</p>
+                            <p><strong>Disciplinas:</strong> Auspex, Celeridad, Presencia.</p>
+                            <p><strong>Plaga de clan:</strong> <em>Obsesión Estética</em>. Los Toreador pueden quedar paralizados por la belleza o el arte. Cuando se encuentran con algo de gran belleza o arte, deben superar una tirada de Compostura + Cautela (Dificultad 2) o quedar fascinados e incapaces de actuar durante un turno.</p>
+                            <p><strong>Compulsión:</strong> <em>Narcisismo</em>. El Toreador se obsesiona con su propia apariencia o con la impresión que causa en los demás. Sufre una penalización de dos dados a las tiradas que no contribuyan a mejorar su imagen o a buscar la admiración hasta que la compulsión se resuelve.</p>
+                        </div>
+                    </div>
+
+                    <!-- Clan Content - Gangrel (Example) -->
+                    <div id="lore-gangrel" class="clan-content hidden space-y-6">
+                        <div class="flex justify-center mb-6">
+                            <img src="https://placehold.co/600x400/004400/ffffff?text=Gangrel"
+                                 alt="Ilustración de un Gangrel."
+                                 class="w-full max-w-xl h-auto rounded shadow-lg border border-gray-800"
+                                 loading="lazy">
+                        </div>
+                        <div class="space-y-4 text-gray-300 leading-relaxed text-lg">
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Los Gangrel</h3>
+                            <p>Los <strong>Gangrel</strong>, conocidos como los Forasteros o los Bestiales, son los vampiros salvajes y nómadas. Prefieren la soledad de la naturaleza a las intrigas de la ciudad, y su conexión con la Bestia es más fuerte que en otros clanes. Suelen Abrazar a supervivientes, cazadores o aquellos que ya viven al margen de la civilización.</p>
+                            <p>Su Plaga de Clan los hace adquirir rasgos animales con cada Frenesí, lo que los marca y los diferencia de otros Vástagos. Su Compulsión los impulsa a la independencia y la autosuficiencia.</p>
+                            <p><strong>Disciplinas:</strong> Animalismo, Fortaleza, Metamorfosis.</p>
+                            <p><strong>Plaga de clan:</strong> <em>Rasgos Bestiales</em>. Cada vez que un Gangrel entra en Frenesí, gana un rasgo animal (pelo, garras, ojos de animal, etc.) y pierde un punto de Apariencia. Estos rasgos son permanentes.</p>
+                            <p><strong>Compulsión:</strong> <em>Soledad</em>. El Gangrel se siente impulsado a alejarse de la civilización o de las multitudes. Sufre una penalización de dos dados a las tiradas sociales en entornos urbanos o con grandes grupos de personas hasta que la compulsión se resuelve.</p>
+                        </div>
+                    </div>
+
+                    <!-- Clan Content - Brujah (Example) -->
+                    <div id="lore-brujah" class="clan-content hidden space-y-6">
+                        <div class="flex justify-center mb-6">
+                            <img src="https://placehold.co/600x400/770000/ffffff?text=Brujah"
+                                 alt="Ilustración de un Brujah."
+                                 class="w-full max-w-xl h-auto rounded shadow-lg border border-gray-800"
+                                 loading="lazy">
+                        </div>
+                        <div class="space-y-4 text-gray-300 leading-relaxed text-lg">
+                            <h3 class="text-2xl text-yellow-400 mb-2 font-cinzel-decorative">Los Brujah</h3>
+                            <p>Los <strong>Brujah</strong>, los Rebeldes o los Filósofos, son un clan de intelectuales apasionados y provocadores. Originalmente buscadores de la verdad y la justicia, se han convertido en los agitadores y revolucionarios del mundo vampírico. Abrazan a aquellos con mentes brillantes y espíritus indomables, a menudo idealistas o inconformistas.</p>
+                            <p>Su Plaga de Clan los hace propensos al Frenesí, lo que los convierte en una fuerza impredecible. Su Compulsión los impulsa a desafiar la autoridad y a expresar su ira o frustración.</p>
+                            <p><strong>Disciplinas:</strong> Celeridad, Potencia, Presencia.</p>
+                            <p><strong>Plaga de clan:</strong> <em>Temperamento Volátil</em>. Los Brujah son más propensos al Frenesí. La dificultad de sus tiradas para resistir el Frenesí aumenta en 1.</p>
+                            <p><strong>Compulsión:</strong> <em>Rebelión</em>. El Brujah se siente impulsado a desafiar una autoridad, romper una regla o expresar su ira de forma abierta. Sufre una penalización de dos dados a las tiradas que no contribuyan a este objetivo hasta que la compulsión se resuelve.</p>
+                        </div>
+                    </div>
+
                 </div>
-
-                <!-- Nosferatu -->
-                <div id="lore-nosferatu" class="clan-content">
-                    <div class="flex justify-center mb-6">
-                        <img src="public/images/Nosferatu.webp"
-                             alt="Ilustración de un Nosferatu"
-                             class="w-full max-w-xl h-auto rounded shadow-md">
-                    </div>
-                    <div class="space-y-4 text-gray-300 leading-relaxed">
-                        <p>Los <strong>Nosferatu</strong> – también conocidos como el Clan de los Ocultos, los Horrores o las Ratas de Alcantarilla – son uno de los catorce clanes de Vampire: La Mascarada. Tras el Abrazo su cuerpo se retuerce en un proceso extremadamente doloroso, dejándolos deformados de por vida. Suelen habitar los márgenes de la sociedad y actúan como espías y traficantes de información. Gracias a su dominio de las Disciplinas y a una red de contactos marginales, pocos secretos escapan a los Nosferatu.</p>
-
-                        <p><strong>Disciplinas:</strong> Animalismo, Ofuscación y Potencia.</p>
-
-                        <p><strong>Plaga de clan:</strong> <em>Repulsividad</em>. La sangre maldita deforma de forma grotesca a todos los miembros del clan. Nunca pueden mejorar la Ventaja de Apariencia y deben asumir el Defecto <strong>Repulsivo</strong> (••). Cualquier intento por disfrazarse sufre una penalización igual a la severidad de su plaga.</p>
-
-                        <p><strong>Variante de Plaga:</strong> <em>Infestación</em>. La guarida de un Nosferatu siempre está plagada de alimañas, lo que entorpece la concentración y las interacciones sociales.</p>
-
-                        <p><strong>Compulsión:</strong> <em>Criptofilia</em>. El Nosferatu se obsesiona con conseguir información secreta. Hasta lograrlo, todas sus acciones no orientadas a ese objetivo reciben una penalización de dos dados.</p>
-
-                        <h3 class="text-2xl text-yellow-400 mb-2">Trasfondo</h3>
-                        <p>Los Nosferatu soportan su maldición a la vista de todos. Muchos utilizan Ofuscación, maquillaje o prótesis para mezclarse, mientras que otros prefieren ocultarse en las alcantarillas y lugares abandonados. Tras la caída de SchreckNET, la red que usaban para comunicarse, dependen de códigos y lenguajes en desuso para mantenerse fuera del alcance de la Segunda Inquisición.</p>
-
-                        <h3 class="text-2xl text-yellow-400 mb-2">Arquetipos de ejemplo</h3>
-                        <ul class="list-disc list-inside ml-4">
-                            <li><strong>Investigador Privado:</strong> Nadie contrataría sus servicios por su aspecto, pero su talento para reunir información es innegable.</li>
-                            <li><strong>Habitante Subterráneo:</strong> Vive entre ratas y desperdicios, saliendo a la superficie solo cuando es imprescindible.</li>
-                            <li><strong>Cleopatra:</strong> Su belleza de antaño fue arruinada por el Abrazo. Ahora solo queda un rostro deforme que oculta tras máscaras y apariencias cuidadas.</li>
-                            <li><strong>Especialista Tecnológico:</strong> Su aspecto repele, pero es el contacto ideal para hackear servidores o interceptar comunicaciones.</li>
-                        </ul>
-
-                        <h3 class="text-2xl text-yellow-400 mb-2">Personajes Notables</h3>
-                        <ul class="list-disc list-inside ml-4">
-                            <li><strong>Zelios</strong>, arquitecto y maestro planificador desaparecido en los túneles de Nueva York en los años 90.</li>
-                            <li><strong>Ambrus Maropis</strong>, referente de las tendencias y la protección de la Mascarada dentro de la Camarilla.</li>
-                            <li><strong>Nathaniel Bordruff</strong>, antiguo cazador convertido en Nosferatu que anhela la destrucción de toda la estirpe.</li>
-                            <li><strong>Wauneka</strong>, veterano de Vietnam y protector de los marginados de Chicago.</li>
-                            <li><strong>Jasper Heartwood</strong>, personaje de <em>LA by Night</em>, experto en sigilo con un lado humano pronunciado.</li>
-                            <li><strong>Khalid Al-Rashid</strong>, antiguo primogénito y maestro espadachín de Chicago desaparecido misteriosamente.</li>
-                            <li><strong>Belinde Buch</strong>, Princesa de Copenhague, famosa por su rostro inexpresivo y su ambición política.</li>
-                        </ul>
-
-                        <h3 class="text-2xl text-yellow-400 mb-2">Cultura</h3>
-                        <p>El Abrazo para un Nosferatu es un proceso lento y traumático que deforma su cuerpo durante semanas. Muchos se rodean de marginados o de quienes padecen enfermedades para pasar desapercibidos. Con frecuencia recurren a la Ofuscación o al uso de máscaras para ocultar su aspecto. El clan valora la información sobre todas las cosas y suele recompensar la lealtad dentro de las coteries.</p>
-                        <p>Los Nosferatu mantienen una relación complicada con las demás sectas. Tras traicionar a los Brujah para ganarse el favor de la Camarilla, muchos desconfían de ellos. Aun así, la Camarilla depende de sus habilidades como espías y cazadores. Los Nosferatu Anarquistas, conocidos como "Nosferatu Rojos", buscan librarse de la opresión y a menudo rompen la Mascarada con mayor descaro.</p>
-
-                        <h3 class="text-2xl text-yellow-400 mb-2">Loresheets Exclusivos</h3>
-                        <ul class="list-disc list-inside ml-4">
-                            <li>Descendiente de Zelios</li>
-                            <li>Cleopatras</li>
-                            <li>Londres bajo Londres</li>
-                            <li>Los Nictuku</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Malkavian -->
-                <div id="lore-malkavian" class="clan-content hidden">
-                    <div class="flex justify-center mb-6">
-                        <img
-                            src="https://cdn.mos.cms.futurecdn.net/PPqAgbdJpMi678Dfdp6MjZ-970-80.png.webp"
-                            alt="Ilustración de un Malkavian"
-                            class="w-full max-w-xl h-auto rounded shadow-md"
-                        >
-                    </div>
-                    <div class="space-y-4 text-gray-300 leading-relaxed">
-                        <h3 class="text-2xl text-yellow-400 mb-2">Transfondo</h3>
-                        <p>
-                            Los <strong>Malkavian</strong> son uno de los catorce clanes de vampiros de
-                            <em>Vampiro: La Mascarada</em>. Calificados como Lunáticos por otros
-                            vampiros, la Sangre de los Malkavian les permite percibir y predecir
-                            verdades ocultas a los demás. Como los “sabios locos” de la poesía, su
-                            perspectiva fracturada se debe a que han visto demasiado del mundo de
-                            una sola vez, comprendiendo las raíces profundas de las cosas y sintiendo
-                            emociones demasiado poderosas para soportarlas.
-                        </p>
-                        <p>
-                            Los Abrazo (Embraces) se realizan a personas de toda clase y edad, por
-                            motivos solo visibles al sire. Uno de sus dones —la <em>Segunda Visión</em>—
-                            les permite entender los sueños, percibir espíritus o predecir el futuro.
-                            Otro don es la <em>Perspicacia</em>: una empatía extrema y un conocimiento
-                            certero de cualquier tema. Por eso muchos Malkavian provienen de la academia
-                            o la medicina, y también buscan a aquellos “rotos” por traumas. Su inestabilidad
-                            hace que la mayoría de los Vástagos los consideren impredecibles y rehúyan su
-                            cercanía.
-                        </p>
-                        <p>
-                            Algunos Hijos de Malkav aseguran estar unidos por un vínculo psíquico
-                            —la llamada Telaraña o Red— que todos comparten<sup>[1]</sup>.
-                        </p>
-
-                        <h3 class="text-2xl text-yellow-400 mb-2">Galería</h3>
-                        <ul class="list-disc list-inside ml-4">
-                            <li>Hermanas Voerman</li>
-                            <li>Vasantasena</li>
-                            <li>Leysha</li>
-                        </ul>
-
-                        <h3 class="text-2xl text-yellow-400 mb-2">Conceptos del juego</h3>
-                        <p>
-                            <em>Clan de la Luna, Lunáticos, Locos, Bufones, Oráculos, Derviches,
-                            Visionarios, Hijos de Malkav</em>
-                        </p>
-
-                        <h3 class="text-2xl text-yellow-400 mb-2">Información de juego</h3>
-                        <p><strong>Disciplinas:</strong> Auspex / Dominación / Ofuscación</p>
-                        <p><strong>Prohibición:</strong> Perspectiva fracturada</p>
-                        <p><strong>Compulsión:</strong> Delirio</p>
-                        <p class="italic text-sm"><strong>Introducido en:</strong> Vampire: The Masquerade Corebook</p>
-
-                        <h3 class="text-2xl text-yellow-400 mb-2">Referencias</h3>
-                        <ul class="list-disc list-inside ml-4 text-gray-500 text-sm">
-                            <li>
-                                “Malkavian ES”, VTM Paradox Wiki, revisado en
-                                <a href="https://vtm.paradoxwikis.com/index.php?title=Malkavian_ES&oldid=5783"
-                                   target="_blank" rel="noopener noreferrer">oldid=5783</a><sup>[1]</sup>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </div><!-- /.container -->
 
     <!-- Footer -->
-    <footer class="text-center mt-12 text-gray-600 text-sm">
-        <p>Contenido basado en la 5ª Edición de Vampiro: La Mascarada.</p>
+    <footer class="text-center mt-12 py-6 text-gray-600 text-sm border-t border-gray-800">
+        <p>&copy; 2025 Guía del Vástago. Contenido basado en la 5ª Edición de Vampiro: La Mascarada. Todos los derechos reservados.</p>
+        <p class="mt-1">Vampire: The Masquerade &copy; Paradox Interactive AB.</p>
     </footer>
 
-    <!-- Back to Top -->
+    <!-- Back to Top Button -->
     <button id="back-to-top"
-            class="fixed bottom-5 right-5 bg-red-800 text-white p-3 rounded-full shadow-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 opacity-0 invisible">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            aria-label="Volver arriba"
+            class="fixed bottom-6 right-6 bg-red-800 text-white p-4 rounded-full shadow-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-300 ease-in-out opacity-0 invisible z-50">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
         </svg>
     </button>
 
+    <!-- Main JavaScript File -->
     <script src="public/app.js"></script>
 </body>
 </html>
